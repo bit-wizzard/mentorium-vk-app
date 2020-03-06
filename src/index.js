@@ -2,7 +2,7 @@ import 'core-js/features/map';
 import 'core-js/features/set';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route, Redirect } from 'react-router-dom'
+import { HashRouter, Route, Redirect } from 'react-router-dom'
 import bridge from '@vkontakte/vk-bridge';
 import App from './App';
 import './index.css'
@@ -24,7 +24,7 @@ bridge.send('VKWebAppInit');
 
 let url = 'http://localhost:10888/'
 ReactDOM.render(
-    <BrowserRouter basename={url}>
+    <HashRouter basename={url}>
         <App>
             <Route
             exact
@@ -63,6 +63,6 @@ ReactDOM.render(
             }}
             /> */}
         </App>
-    </BrowserRouter>,
+    </HashRouter>,
     document.getElementById("root")
 )
