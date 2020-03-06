@@ -21,7 +21,7 @@ class Bottom extends Component {
         return (
             <>
                 <BottomStyle>
-                        <CourseSelector active={this.state.active}></CourseSelector>
+                        {/* <CourseSelector active={this.state.active}></CourseSelector> */}
                     <BottomInner active={this.state.active}>
                         <div className='caption' onClick={() => this.nextPath('/new')}>
                             <FontAwesomeIcon icon={faPlus} />
