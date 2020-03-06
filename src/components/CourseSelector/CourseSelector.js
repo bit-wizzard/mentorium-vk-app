@@ -6,11 +6,22 @@ import { faChevronUp } from '@fortawesome/free-solid-svg-icons'
 
 
 class CourseSelector extends Component {
+
+    state = {
+        active: false
+    }
+
+    componentDidMount() {
+        this.setState({
+            active: true
+        })
+    }
+    
     render() {
         return (
             <>
-                <CourseSelectorStyle active={this.props.active}>
-                    <CourseSelectorInner active={this.props.active}>
+                <CourseSelectorStyle active={this.state.active}>
+                    <CourseSelectorInner active={this.state.active}>
                         <Text type='secondary' size='default'>Название предмета</Text>
                         <FontAwesomeIcon icon={faChevronUp} color='#898989'/>
                     </CourseSelectorInner>

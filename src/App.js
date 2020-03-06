@@ -1,42 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import bridge from '@vkontakte/vk-bridge';
-import View from '@vkontakte/vkui/dist/components/View/View';
-import ScreenSpinner from '@vkontakte/vkui/dist/components/ScreenSpinner/ScreenSpinner';
-import '@vkontakte/vkui/dist/vkui.css';
+import React, { Component } from 'react'
 
-import Home from './panels/Home';
-import Persik from './panels/Persik';
-import Loader from './components/Loader/Loader'
-import Main from './components/Main/Main'
-const App = () => {
-	// const [activePanel, setActivePanel] = useState('home');
-	// const [fetchedUser, setUser] = useState(null);
-	// const [popout, setPopout] = useState(<ScreenSpinner size='large' />);
+import { withRouter } from 'react-router-dom'
+import './App.css'
+import { render } from 'react-dom'
 
-	// useEffect(() => {
-	// 	bridge.subscribe(({ detail: { type, data }}) => {
-	// 		if (type === 'VKWebAppUpdateConfig') {
-	// 			const schemeAttribute = document.createAttribute('scheme');
-	// 			schemeAttribute.value = data.scheme ? data.scheme : 'client_light';
-	// 			document.body.attributes.setNamedItem(schemeAttribute);
-	// 		}
-	// 	});
-	// 	async function fetchData() {
-	// 		const user = await bridge.send('VKWebAppGetUserInfo');
-	// 		setUser(user);
-	// 		setPopout(null);
-	// 	}
-	// 	fetchData();
-	// }, []);
+class App extends Component {
 
-	// const go = e => {
-	// 	setActivePanel(e.currentTarget.dataset.to);
-	// };
-
-	return (
-		<Main></Main>
-	);
+	
+	render() {
+		const { children, location } =this.props
+		return (
+			<>
+				{children}
+			</>
+	)
+}
 }
 
-export default App;
-
+export default withRouter(App);

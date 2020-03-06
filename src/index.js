@@ -2,10 +2,15 @@ import 'core-js/features/map';
 import 'core-js/features/set';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter, Route, Redirect } from 'react-router-dom'
 import bridge from '@vkontakte/vk-bridge';
 import App from './App';
-import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import './index.css'
+
+import Main from './components/Main/Main'
+import Loader from './components/Loader/Loader';
+import Bottom from './components/Bottom/Bottom'
+import CourseSelector from './components/CourseSelector/CourseSelector';
 
 // Init VK  Mini App
 bridge.send('VKWebAppInit');
@@ -17,4 +22,46 @@ bridge.send('VKWebAppInit');
 // Подробнее про сервис воркеры можно почитать тут — https://vk.cc/8MHpmT
 // registerServiceWorker();
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+    <BrowserRouter>
+        <App>
+            <Route
+            exact
+            path="/"
+            render={() => {
+                return (
+                    <>
+                        <Main/>
+                        <Bottom/>
+                    </>
+                )
+            }}
+            />
+            <Route
+            exact
+            path="/new"
+            render={() => {
+                return (
+                    <>
+                        <Main/>
+                        <Bottom/>
+                        <CourseSelector/>
+                    </>
+                )
+            }}
+            />
+            <Route
+            exact
+            path="/loader"
+            render={() => {
+                return (
+                    <>
+                        <Loader/>
+                    </>
+                )
+            }}
+            />
+        </App>
+    </BrowserRouter>,
+    document.getElementById("root")
+)
