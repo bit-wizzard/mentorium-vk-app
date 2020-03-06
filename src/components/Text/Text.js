@@ -27,12 +27,9 @@ Text.propTypes = {
     children: PropTypes.node.isRequired,
 
     size: PropTypes.oneOf([
-        'largest',
-        'large',
-        'big',
-        'medium',
         'small',
-        'smallest'
+        'default',
+        'big'
         ]).isRequired,
 
     type: PropTypes.oneOf([
@@ -52,7 +49,7 @@ Text.propTypes = {
 
 Text.defaultProps = {
     children: null,
-    size: 'medium',
+    size: 'small',
     type: 'default',
     weight: 'light',
     nowrap: false

@@ -8,12 +8,19 @@ const Loader = ({ props }) => (
         <Logo></Logo>
         <LoaderContent>
             <div className='hello'>
-                <Text>Привет, </Text>
-                <Text>Аргун</Text>
+                <Text size='big'>Привет,</Text>
+                <Text size='big' weight='bold'>Аргун</Text>
             </div>
             <div className='hello_content'>
-                <Text>
-                    Добро пожаловать в mentorium
+                <div className='hello_content_1'>
+                    <Text type='secondary'>
+                        Добро пожаловать в
+                    </Text> 
+                    <Text type='brand' weight='bold'>
+                        mentorium
+                    </Text>
+                </div>
+                <Text type='secondary'>
                     Тут мы решаем тестовики по предметам и готовимся к ЕНТ.
                 </Text>
             </div>

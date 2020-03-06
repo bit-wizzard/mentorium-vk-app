@@ -7,7 +7,7 @@ import '@vkontakte/vkui/dist/vkui.css';
 import Home from './panels/Home';
 import Persik from './panels/Persik';
 import Loader from './components/Loader/Loader'
-
+import Main from './components/Main/Main'
 const App = () => {
 	// const [activePanel, setActivePanel] = useState('home');
 	// const [fetchedUser, setUser] = useState(null);
@@ -34,8 +34,7 @@ const App = () => {
 	// };
 
 	return (
-			<Loader></Loader>
-		
+		<Main></Main>
 	);
 }
 

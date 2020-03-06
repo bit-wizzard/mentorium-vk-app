@@ -4,10 +4,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import bridge from '@vkontakte/vk-bridge';
 import App from './App';
-// import registerServiceWorker from './sw';
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import './index.css'
 
 // Init VK  Mini App
 bridge.send('VKWebAppInit');
+
 
 // Если вы хотите, чтобы ваше веб-приложение работало в оффлайне и загружалось быстрее,
 // расскомментируйте строку с registerServiceWorker();
@@ -15,4 +17,6 @@ bridge.send('VKWebAppInit');
 // Подробнее про сервис воркеры можно почитать тут — https://vk.cc/8MHpmT
 // registerServiceWorker();
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+    <BrowserRouter></BrowserRouter>
+)
