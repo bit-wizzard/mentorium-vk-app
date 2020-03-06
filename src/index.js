@@ -44,13 +44,13 @@ ReactDOM.render(
                 return (
                     <>
                         <Main/>
-                        <Bottom/>
                         <CourseSelector/>
+                        <Bottom new/>
                     </>
                 )
             }}
             />
-            <Route
+            {/* <Route
             exact
             path="/loader"
             render={() => {
@@ -60,7 +60,7 @@ ReactDOM.render(
                     </>
                 )
             }}
-            />
+            /> */}
         </App>
     </BrowserRouter>,
     document.getElementById("root")

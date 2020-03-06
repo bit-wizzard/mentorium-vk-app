@@ -22,14 +22,5 @@ export const BottomInner = styled.div `
         align-items: center;
         grid-gap: 0.5rem;
     }
-    ${props => props.active ?
-    `
-    box-shadow: 0px -4px 8px rgba(0, 0, 0, 0);
-    `
-    :
-    `
-    box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.1);
-    transition: 0.5s;
-    `
-    }
+
 `
