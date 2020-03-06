@@ -17,6 +17,4 @@ bridge.send('VKWebAppInit');
 // Подробнее про сервис воркеры можно почитать тут — https://vk.cc/8MHpmT
 // registerServiceWorker();
 
-ReactDOM.render(
-    <BrowserRouter></BrowserRouter>
-)
+ReactDOM.render(<App />, document.getElementById('root'));
