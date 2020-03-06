@@ -23,7 +23,7 @@ bridge.send('VKWebAppInit');
 // registerServiceWorker();
 
 ReactDOM.render(
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
         <App>
             <Route
             exact
