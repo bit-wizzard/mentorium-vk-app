@@ -22,8 +22,9 @@ bridge.send('VKWebAppInit');
 // Подробнее про сервис воркеры можно почитать тут — https://vk.cc/8MHpmT
 // registerServiceWorker();
 
+let url = 'http://localhost:10888/'
 ReactDOM.render(
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <BrowserRouter basename={url}>
         <App>
             <Route
             exact
