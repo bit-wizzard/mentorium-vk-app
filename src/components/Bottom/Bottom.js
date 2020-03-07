@@ -4,7 +4,7 @@ import Text from '../Text/Text'
 import CourseSelector from '../CourseSelector/CourseSelector'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
-import {  withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 
 class Bottom extends Component {
     //()=>this.setState(prevState=>({active: !prevState.active}))
@@ -13,21 +13,22 @@ class Bottom extends Component {
         active: false
     }
 
-    nextPath(path) {
-        if(path != this.props.location.pathname)
-            this.props.history.push(path)
-    }
-    
+    // nextPath(path) {
+        // <Route to={path}></Route>
+    // }
+
     render() {
         return (
             <>
                 <BottomStyle activated={this.props.activated}>
                         {/* <CourseSelector></CourseSelector> */}
                     <BottomInner active={this.state.active}>
-                        <div className='caption' onClick={() => this.nextPath('/new')}>
+                        <Link to='/new'>
+                        <div className='caption'>
                             <FontAwesomeIcon icon={faPlus} />
                             <Text size='default'>Добавить новый предмет</Text>
                         </div>
+                        </Link>
                     </BottomInner>
                 </BottomStyle>
             </>
