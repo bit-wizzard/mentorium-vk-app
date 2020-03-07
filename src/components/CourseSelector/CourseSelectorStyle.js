@@ -9,7 +9,6 @@ export const CourseSelectorBack = styled.div
 
 export const CourseSelectorBackground = styled.div
 `
-    background: red;
     height: 100vh;
     width: 100vw;
 `

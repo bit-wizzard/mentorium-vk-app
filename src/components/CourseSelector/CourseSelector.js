@@ -16,7 +16,7 @@ class CourseSelector extends Component {
         super()
         this.state = {
             active: false,
-            redBackground: false;
+            redBackground: false
         }
     }
 
@@ -26,7 +26,7 @@ class CourseSelector extends Component {
     }
 
     onAddLesson(lesson) {
-        LessonModel.addLesson(lesson)
+        // LessonModel.addLesson(lesson)
         console.log(lesson)
     }
 
@@ -72,7 +72,7 @@ class CourseSelector extends Component {
     
         return (
             <>  <CourseSelectorBack>
-                <CourseSelectorBackground onClick={() => (this.setState(redBackground: true))}></CourseSelectorBackground>
+                <CourseSelectorBackground onClick={() => this.nextPath('./')}></CourseSelectorBackground>
                 <CourseSelectorStyle 
                 main={this.props.main}
                 active={this.state.active}>
