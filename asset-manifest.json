@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/mentorium-vk-app/static/css/main.4fbf4281.chunk.css",
-    "main.js": "/mentorium-vk-app/static/js/main.58526e0e.chunk.js",
-    "main.js.map": "/mentorium-vk-app/static/js/main.58526e0e.chunk.js.map",
-    "runtime-main.js": "/mentorium-vk-app/static/js/runtime-main.3b6a0725.js",
-    "runtime-main.js.map": "/mentorium-vk-app/static/js/runtime-main.3b6a0725.js.map",
-    "static/js/2.bcf7dfb5.chunk.js": "/mentorium-vk-app/static/js/2.bcf7dfb5.chunk.js",
-    "static/js/2.bcf7dfb5.chunk.js.map": "/mentorium-vk-app/static/js/2.bcf7dfb5.chunk.js.map",
-    "index.html": "/mentorium-vk-app/index.html",
-    "precache-manifest.9d95f1fec0b6074938620fd05d1a24d4.js": "/mentorium-vk-app/precache-manifest.9d95f1fec0b6074938620fd05d1a24d4.js",
-    "service-worker.js": "/mentorium-vk-app/service-worker.js",
-    "static/css/main.4fbf4281.chunk.css.map": "/mentorium-vk-app/static/css/main.4fbf4281.chunk.css.map",
-    "static/js/2.bcf7dfb5.chunk.js.LICENSE.txt": "/mentorium-vk-app/static/js/2.bcf7dfb5.chunk.js.LICENSE.txt"
+    "main.css": "./static/css/main.4fbf4281.chunk.css",
+    "main.js": "./static/js/main.58526e0e.chunk.js",
+    "main.js.map": "./static/js/main.58526e0e.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.d59ec8c7.js",
+    "runtime-main.js.map": "./static/js/runtime-main.d59ec8c7.js.map",
+    "static/js/2.b745d220.chunk.js": "./static/js/2.b745d220.chunk.js",
+    "static/js/2.b745d220.chunk.js.map": "./static/js/2.b745d220.chunk.js.map",
+    "index.html": "./index.html",
+    "precache-manifest.f396dee8b99b05838f4ddab42fe601bc.js": "./precache-manifest.f396dee8b99b05838f4ddab42fe601bc.js",
+    "service-worker.js": "./service-worker.js",
+    "static/css/main.4fbf4281.chunk.css.map": "./static/css/main.4fbf4281.chunk.css.map",
+    "static/js/2.b745d220.chunk.js.LICENSE.txt": "./static/js/2.b745d220.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.3b6a0725.js",
-    "static/js/2.bcf7dfb5.chunk.js",
+    "static/js/runtime-main.d59ec8c7.js",
+    "static/js/2.b745d220.chunk.js",
     "static/css/main.4fbf4281.chunk.css",
     "static/js/main.58526e0e.chunk.js"
   ]
