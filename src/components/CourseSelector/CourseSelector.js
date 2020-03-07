@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronUp } from '@fortawesome/free-solid-svg-icons'
 import { withRouter, Link } from 'react-router-dom'
 
-// import { LessonModel } from '../../models/lesson'
+import { LessonModel } from '../../models/lesson'
 
 class CourseSelector extends Component {
 
@@ -22,7 +22,7 @@ class CourseSelector extends Component {
     }
 
     onAddLesson(lesson) {
-        // LessonModel.addLesson(lesson)
+        LessonModel.addLesson(lesson)
         console.log(lesson)
     }
 
