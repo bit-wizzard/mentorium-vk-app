@@ -3,15 +3,7 @@ import { CourseSelectorStyle, CourseSelectorInner, CourseSelectorInnerActivated 
 import Text from '../Text/Text'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronUp } from '@fortawesome/free-solid-svg-icons'
-import { withRouter } from 'react-router-dom'
-
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link,
-    useRouteMatch
-  } from "react-router-dom";
+import { withRouter, Link } from 'react-router-dom'
 
 // import { LessonModel } from '../../models/lesson'
 
@@ -24,9 +16,9 @@ class CourseSelector extends Component {
         }
     }
 
-    nextPath(path) {
-        
-    }
+    // nextPath(path) {
+        // <Link to={path}></Link>
+    // }
 
     onAddLesson(lesson) {
         // LessonModel.addLesson(lesson)
@@ -64,12 +56,14 @@ class CourseSelector extends Component {
         ]
 
         let course = courses.map((data, i) => (
+            <Link>
             <div className='selectorInnerActivated'
-            onClick={this.onAddLesson(data)}
+            // onClick={this.onAddLesson(data)}
             key={i}>
                 <Text size='default'>{data.name}</Text>
                 <Text size='default'>({data.language})</Text>
             </div>
+            </Link>
         ))
 
     
@@ -90,12 +84,15 @@ class CourseSelector extends Component {
                     </>
                     :
                     <>
+                    <Link to='/course-selector'>
                     <CourseSelectorInner 
                     active={this.state.active}
-                    onClick={() => this.nextPath('/course-selector')}>
+                    // onClick={() => this.nextPath('/course-selector')}
+                    >
                         <Text type='secondary' size='default'>Название предмета</Text>
                         <FontAwesomeIcon icon={faChevronUp} color='#898989'/>
                     </CourseSelectorInner>
+                    </Link>
                     </>
                     }
                 </CourseSelectorStyle>
