@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5d4e5ec172a6050d134f9f3e7cdce728",
+    "revision": "40a08c891821da51d71b6b726615688f",
     "url": "/mentorium-vk-app/index.html"
   },
   {
-    "revision": "bf4635fd268bb0878e58",
+    "revision": "7edf2e081b2e3585b91b",
     "url": "/mentorium-vk-app/static/css/main.4fbf4281.chunk.css"
   },
   {
-    "revision": "ab174b08f11450a6c1b1",
-    "url": "/mentorium-vk-app/static/js/2.bf2589fb.chunk.js"
+    "revision": "05a0301346f03c7e6461",
+    "url": "/mentorium-vk-app/static/js/2.bcf7dfb5.chunk.js"
   },
   {
     "revision": "f231859d6585c4cd5f80c344783ed269",
-    "url": "/mentorium-vk-app/static/js/2.bf2589fb.chunk.js.LICENSE.txt"
+    "url": "/mentorium-vk-app/static/js/2.bcf7dfb5.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "bf4635fd268bb0878e58",
-    "url": "/mentorium-vk-app/static/js/main.2bbb3b5a.chunk.js"
+    "revision": "7edf2e081b2e3585b91b",
+    "url": "/mentorium-vk-app/static/js/main.58526e0e.chunk.js"
   },
   {
     "revision": "461332f57dac899d5837",

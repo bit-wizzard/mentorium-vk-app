@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/mentorium-vk-app/precache-manifest.c3b6fe2c2659d398ebf7204b5cc3d43e.js"
+  "/mentorium-vk-app/precache-manifest.9d95f1fec0b6074938620fd05d1a24d4.js"
 );
 
 self.addEventListener('message', (event) => {

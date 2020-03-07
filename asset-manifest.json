@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/mentorium-vk-app/static/css/main.4fbf4281.chunk.css",
-    "main.js": "/mentorium-vk-app/static/js/main.2bbb3b5a.chunk.js",
-    "main.js.map": "/mentorium-vk-app/static/js/main.2bbb3b5a.chunk.js.map",
+    "main.js": "/mentorium-vk-app/static/js/main.58526e0e.chunk.js",
+    "main.js.map": "/mentorium-vk-app/static/js/main.58526e0e.chunk.js.map",
     "runtime-main.js": "/mentorium-vk-app/static/js/runtime-main.3b6a0725.js",
     "runtime-main.js.map": "/mentorium-vk-app/static/js/runtime-main.3b6a0725.js.map",
-    "static/js/2.bf2589fb.chunk.js": "/mentorium-vk-app/static/js/2.bf2589fb.chunk.js",
-    "static/js/2.bf2589fb.chunk.js.map": "/mentorium-vk-app/static/js/2.bf2589fb.chunk.js.map",
+    "static/js/2.bcf7dfb5.chunk.js": "/mentorium-vk-app/static/js/2.bcf7dfb5.chunk.js",
+    "static/js/2.bcf7dfb5.chunk.js.map": "/mentorium-vk-app/static/js/2.bcf7dfb5.chunk.js.map",
     "index.html": "/mentorium-vk-app/index.html",
-    "precache-manifest.c3b6fe2c2659d398ebf7204b5cc3d43e.js": "/mentorium-vk-app/precache-manifest.c3b6fe2c2659d398ebf7204b5cc3d43e.js",
+    "precache-manifest.9d95f1fec0b6074938620fd05d1a24d4.js": "/mentorium-vk-app/precache-manifest.9d95f1fec0b6074938620fd05d1a24d4.js",
     "service-worker.js": "/mentorium-vk-app/service-worker.js",
     "static/css/main.4fbf4281.chunk.css.map": "/mentorium-vk-app/static/css/main.4fbf4281.chunk.css.map",
-    "static/js/2.bf2589fb.chunk.js.LICENSE.txt": "/mentorium-vk-app/static/js/2.bf2589fb.chunk.js.LICENSE.txt"
+    "static/js/2.bcf7dfb5.chunk.js.LICENSE.txt": "/mentorium-vk-app/static/js/2.bcf7dfb5.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.3b6a0725.js",
-    "static/js/2.bf2589fb.chunk.js",
+    "static/js/2.bcf7dfb5.chunk.js",
     "static/css/main.4fbf4281.chunk.css",
-    "static/js/main.2bbb3b5a.chunk.js"
+    "static/js/main.58526e0e.chunk.js"
   ]
 }
