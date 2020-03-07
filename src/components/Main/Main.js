@@ -5,15 +5,24 @@ import Notification from '../Notification/Notification'
 import Bottom from '../Bottom/Bottom'
 
 import Text from '../Text/Text'
+import CourseSelector from '../CourseSelector/CourseSelector'
 
 class Main extends Component {
+
+    constructor() {
+        super()
+    }    
     render() {
         return (
             <>
                 <MainStyle>
                     <Title main ></Title>
                     <Notification type='0'></Notification>
+                    <div>hello</div>
                 </MainStyle>
+                <CourseSelector 
+                main
+                ></CourseSelector>
                 <Bottom></Bottom>
             </>
         )
