@@ -15,7 +15,7 @@ import CourseSelector from './components/CourseSelector/CourseSelector';
 // Init VK  Mini App
 bridge.send('VKWebAppInit');
 
-let url = "http://localhost:10888"
+let url = "https://y4m4t0.github.io/mentorium-vk-app"
 
 // Если вы хотите, чтобы ваше веб-приложение работало в оффлайне и загружалось быстрее,
 // расскомментируйте строку с registerServiceWorker();
@@ -23,7 +23,6 @@ let url = "http://localhost:10888"
 // Подробнее про сервис воркеры можно почитать тут — https://vk.cc/8MHpmT
 // registerServiceWorker();
 
-let url = 'http://localhost:10888/'
 ReactDOM.render(
     <BrowserRouter basename={url}>
         <App>
