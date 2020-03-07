@@ -2,13 +2,12 @@ import 'core-js/features/map';
 import 'core-js/features/set';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route, Redirect } from 'react-router-dom'
+import { BrowserRouter, Route } from 'react-router-dom'
 import bridge from '@vkontakte/vk-bridge';
 import App from './App';
 import './index.css'
 
 import Main from './components/Main/Main'
-import Loader from './components/Loader/Loader';
 import Bottom from './components/Bottom/Bottom'
 import CourseSelector from './components/CourseSelector/CourseSelector';
 

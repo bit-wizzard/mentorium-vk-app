@@ -16,7 +16,6 @@ class CourseSelector extends Component {
         super()
         this.state = {
             active: false,
-            redBackground: false;
         }
     }
 
@@ -30,7 +29,12 @@ class CourseSelector extends Component {
         console.log(lesson)
     }
 
+    
     componentDidMount() {
+
+        if (this.props.location.pathname == '/') {}
+    
+
         if(this.props.activated)
             this.setState({ active: true })
         else {
@@ -72,7 +76,7 @@ class CourseSelector extends Component {
     
         return (
             <>  <CourseSelectorBack>
-                <CourseSelectorBackground onClick={() => (this.setState(redBackground: true))}></CourseSelectorBackground>
+                <CourseSelectorBackground onClick={() => {this.nextPath('./')}}></CourseSelectorBackground>
                 <CourseSelectorStyle 
                 main={this.props.main}
                 active={this.state.active}>
