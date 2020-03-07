@@ -24,7 +24,7 @@ let url = "https://y4m4t0.github.io/mentorium-vk-app"
 // registerServiceWorker();
 
 ReactDOM.render(
-    <BrowserRouter basename={url}>
+    <BrowserRouter>
         <App>
             <Route
             exact

@@ -2,7 +2,7 @@
   "name": "mentorium-vk",
   "version": "1.0.0",
   "description": "",
-  "homepage": "./",
+  "homepage": "https://y4m4t0.github.io/mentorium-vk-app/",
   "main": "index.js",
   "scripts": {
     "start": "cross-env PORT=10888 react-scripts start",
