@@ -21,8 +21,8 @@ let url = "mentorium-vk-app"
 // расскомментируйте строку с registerServiceWorker();
 // Но не забывайте, что на данный момент у технологии есть достаточно подводных камней
 // Подробнее про сервис воркеры можно почитать тут — https://vk.cc/8MHpmT
-// registerServiceWorker();
-
+    // serviceWorker.registre();
+    
 ReactDOM.render(
     <BrowserRouter basename={url}>
         <App>

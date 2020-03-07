@@ -16,9 +16,10 @@ class CourseSelector extends Component {
         }
     }
 
-    // nextPath(path) {
-        // <Link to={path}></Link>
-    // }
+    nextPath(path) {
+        if(path != this.props.location.pathname)
+            this.props.history.push(path)
+    }
 
     onAddLesson(lesson) {
         // LessonModel.addLesson(lesson)
@@ -56,14 +57,12 @@ class CourseSelector extends Component {
         ]
 
         let course = courses.map((data, i) => (
-            <Link>
             <div className='selectorInnerActivated'
-            // onClick={this.onAddLesson(data)}
+            onClick={this.onAddLesson(data)}
             key={i}>
                 <Text size='default'>{data.name}</Text>
                 <Text size='default'>({data.language})</Text>
             </div>
-            </Link>
         ))
 
     
@@ -84,15 +83,12 @@ class CourseSelector extends Component {
                     </>
                     :
                     <>
-                    <Link to='/course-selector'>
                     <CourseSelectorInner 
                     active={this.state.active}
-                    // onClick={() => this.nextPath('/course-selector')}
-                    >
+                    onClick={() => this.nextPath('/course-selector')}>
                         <Text type='secondary' size='default'>Название предмета</Text>
                         <FontAwesomeIcon icon={faChevronUp} color='#898989'/>
                     </CourseSelectorInner>
-                    </Link>
                     </>
                     }
                 </CourseSelectorStyle>
