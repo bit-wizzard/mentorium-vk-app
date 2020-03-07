@@ -15,6 +15,7 @@ import CourseSelector from './components/CourseSelector/CourseSelector';
 // Init VK  Mini App
 bridge.send('VKWebAppInit');
 
+let url = "https://y4m4t0.github.io/mentorium-vk-app"
 
 // Если вы хотите, чтобы ваше веб-приложение работало в оффлайне и загружалось быстрее,
 // расскомментируйте строку с registerServiceWorker();
@@ -23,7 +24,7 @@ bridge.send('VKWebAppInit');
 // registerServiceWorker();
 
 ReactDOM.render(
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <BrowserRouter basename={url}>
         <App>
             <Route
             exact
