@@ -5,7 +5,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronUp } from '@fortawesome/free-solid-svg-icons'
 import { withRouter } from 'react-router-dom'
 
-import { LessonModel } from '../../models/lesson'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    useRouteMatch
+  } from "react-router-dom";
+
+// import { LessonModel } from '../../models/lesson'
 
 class CourseSelector extends Component {
 
@@ -17,12 +25,11 @@ class CourseSelector extends Component {
     }
 
     nextPath(path) {
-        if(path != this.props.location.pathname)
-            this.props.history.push(path)
+        
     }
 
     onAddLesson(lesson) {
-        LessonModel.addLesson(lesson)
+        // LessonModel.addLesson(lesson)
         console.log(lesson)
     }
 
