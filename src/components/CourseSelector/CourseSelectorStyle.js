@@ -1,5 +1,19 @@
 import styled from 'styled-components'
 
+export const CourseSelectorBack = styled.div 
+`
+    position: absolute;
+    top:0;
+    left: 0;
+`
+
+export const CourseSelectorBackground = styled.div
+`
+    background: red;
+    height: 100vh;
+    width: 100vw;
+`
+
 export const CourseSelectorStyle = styled.div `
     width: 100%;
     background: #FFB600;

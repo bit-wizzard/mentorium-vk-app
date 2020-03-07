@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
-import { CourseSelectorStyle, CourseSelectorInner, CourseSelectorInnerActivated } from './CourseSelectorStyle'
+import { 
+    CourseSelectorStyle, CourseSelectorInner, CourseSelectorInnerActivated,
+    CourseSelectorBack, CourseSelectorBackground
+} from './CourseSelectorStyle'
 import Text from '../Text/Text'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronUp } from '@fortawesome/free-solid-svg-icons'
@@ -13,6 +16,7 @@ class CourseSelector extends Component {
         super()
         this.state = {
             active: false,
+            redBackground: false;
         }
     }
 
@@ -67,7 +71,8 @@ class CourseSelector extends Component {
 
     
         return (
-            <>
+            <>  <CourseSelectorBack>
+                <CourseSelectorBackground onClick={() => (this.setState(redBackground: true))}></CourseSelectorBackground>
                 <CourseSelectorStyle 
                 main={this.props.main}
                 active={this.state.active}>
@@ -92,6 +97,7 @@ class CourseSelector extends Component {
                     </>
                     }
                 </CourseSelectorStyle>
+                </CourseSelectorBack>
             </>
         )
     }
