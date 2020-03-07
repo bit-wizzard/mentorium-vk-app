@@ -21,8 +21,8 @@ class Bottom extends Component {
     render() {
         return (
             <>
-                <BottomStyle>
-                        {/* <CourseSelector active={this.state.active}></CourseSelector> */}
+                <BottomStyle activated={this.props.activated}>
+                        {/* <CourseSelector></CourseSelector> */}
                     <BottomInner active={this.state.active}>
                         <div className='caption' onClick={() => this.nextPath('/new')}>
                             <FontAwesomeIcon icon={faPlus} />

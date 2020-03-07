@@ -46,22 +46,24 @@ ReactDOM.render(
                     <>
                         <Main/>
                         <CourseSelector/>
-                        <Bottom new/>
+                        <Bottom/>
                     </>
                 )
             }}
             />
-            {/* <Route
+            <Route
             exact
-            path="/loader"
+            path="/course-selector"
             render={() => {
                 return (
                     <>
-                        <Loader/>
+                        <Main/>
+                        <CourseSelector activated/>
+                        <Bottom activated/>
                     </>
                 )
             }}
-            /> */}
+            />
         </App>
     </BrowserRouter>,
     document.getElementById("root")
