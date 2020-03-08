@@ -13,9 +13,13 @@ import { observer } from 'mobx-react'
 
 class CourseSelector extends Component {
 
-        state = {
+    constructor(props) {
+        super()
+        
+        this.state = {
             active: false,
         }
+    }
 
     nextPath(path) {
         if(path != this.props.location.pathname)
