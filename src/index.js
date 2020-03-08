@@ -11,6 +11,7 @@ import './index.css'
 import Main from './components/Main/Main'
 import Bottom from './components/Bottom/Bottom'
 import CourseSelector from './components/CourseSelector/CourseSelector';
+import Verification from './components/Verification/Verification'
 
 // Init VK  Mini App
 bridge.send('VKWebAppInit');
@@ -64,6 +65,18 @@ ReactDOM.render(
                 )
             }}
             />
+            <Route
+            exact
+            path="/close/:id"
+            render={() => {
+                return (
+                    <>
+                        <Main/>
+                        <Bottom/>
+                        <Verification/>
+                    </>
+                )
+            }}/>
         </App>
     </BrowserRouter>,
     document.getElementById("root")

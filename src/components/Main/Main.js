@@ -17,11 +17,13 @@ class Main extends Component {
     courses = [
         {
             name: 'hello',
-            language: 'rsu'
+            language: 'rsu',
+            id: '1'
         },
         {
             name: 'helloooo',
-            language: 'yopta'
+            language: 'yopta',
+            id: '2'
         }
     ]
 
@@ -33,7 +35,7 @@ class Main extends Component {
         
     render() {
         let course = this.courses.map((data, i) => (
-            <Course title={data.name} progress='0' language={data.language} key={i}></Course>
+            <Course title={data.name} progress='0' language={data.language} id={data.id} key={i}></Course>
         ))
         
 
