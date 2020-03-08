@@ -22,15 +22,11 @@ class Main extends Component {
     componentDidMount() {
         if(this.courses.length > 0)
             this.setState({notificationCounter: 1})
-        
-        LessonModel.lessons.map(item => {
-            console.log(item)
-        })
     }    
         
     render() {
         let course = this.courses.map((data, i) => (
-            <Course title={data.name} progress='0' language={data.language} id={data.id} key={i}></Course>
+            <Course title={data.name} progress='0' language={data.language} id={data.code} key={i}></Course>
         ))
         
 

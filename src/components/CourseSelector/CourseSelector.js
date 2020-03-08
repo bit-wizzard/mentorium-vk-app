@@ -45,15 +45,18 @@ class CourseSelector extends Component {
         let courses = [
             {
                 name: "Kazakh history",
-                language: "KAZ"
+                language: "KAZ",
+                code: "KHK"
             },
             {
                 name: "Kazakh history",
-                language: "RUS"
+                language: "RUS",
+                code: "KZR"
             },
             {
                 name: "Math history",
-                language: "RUS"
+                language: "RUS",
+                code: "MHR"
             }
         ]
 

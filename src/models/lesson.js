@@ -11,7 +11,10 @@ class LessonModel {
     }
 
     addLesson(lesson){
-        this.lessons.push(lesson)
+        let { code } = lesson
+        if(this.lessons.findIndex(o => o.code == code) == -1) {
+            this.lessons.push(lesson)
+        }
     }
 }
 
