@@ -11,6 +11,12 @@ export const CourseStyle = styled.div
     grid-gap: 1rem;
     margin-bottom 1rem;
 
+    .title {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-gap: 10px;
+    }
+
     .progress {
         display: grid;
         grid-template-columns: auto auto;

@@ -30,7 +30,7 @@ class Main extends Component {
         
     render() {
         let course = this.courses.map((data, i) => (
-            <Course title={data.name} progress='0' key={i}></Course>
+            <Course title={data.name} progress='0' language={data.language} id={data.id} key={i}></Course>
         ))
         
 
