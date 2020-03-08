@@ -33,7 +33,6 @@ class CourseSelector extends Component {
     }
 
     onBack() {
-        
         this.props.history.goBack()        
         this.props.history.goBack()        
     }
@@ -61,7 +60,7 @@ class CourseSelector extends Component {
 
         let course = courses.map((data, i) => (
             <div className='selectorInnerActivated'
-            onClick={this.onAddLesson(data)}
+            onClick={() => this.onAddLesson(data)}
             key={i}>
                 <Text size='default'>{data.name}</Text>
                 <Text size='default'>({data.language})</Text>
