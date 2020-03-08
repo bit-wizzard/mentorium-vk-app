@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { VerificationStyle } from './VerificationStyle'
+import { VerificationStyle, VerificationInner, VerificationYes, VerificationNo } from './VerificationStyle'
 import { withRouter } from 'react-router-dom'
+import Text from '../Text/Text'
 
 class Verification extends Component {
     render() {
@@ -8,7 +9,13 @@ class Verification extends Component {
         return (
             <>
                 <VerificationStyle>
-                    <div>{courseId}</div>
+                    <VerificationInner>
+                        <Text>do you really want to delete NAME item?</Text>
+                        <div className='options'>
+                            <VerificationYes>Yes</VerificationYes>
+                            <VerificationNo onClick={() => this.props.history.goBack()}>No</VerificationNo>
+                        </div>
+                    </VerificationInner>
                 </VerificationStyle>
             </>
         )
