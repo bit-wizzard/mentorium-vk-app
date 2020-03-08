@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheckCircle, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { withRouter } from 'react-router-dom'
 import Text from '../Text/Text'
-
+import LessonModel from '../../models/lesson'
 
 class Course extends Component {    
 
@@ -15,6 +15,7 @@ class Course extends Component {
     
     onClose(name) {
         this.nextPath('/close/' + this.props.id)
+        LessonModel.getLessonData(this.props.id)
     }
     
     render() {
