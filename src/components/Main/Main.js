@@ -6,6 +6,11 @@ import Bottom from '../Bottom/Bottom'
 
 class Main extends Component {
 
+    // componentDidMount() {
+    //     if(this.props.history.action === "POP"){
+
+    //     }
+    // }
     render() {
         return (
             <>

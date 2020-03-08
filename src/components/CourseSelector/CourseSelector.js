@@ -26,15 +26,16 @@ class CourseSelector extends Component {
 
     onAddLesson(lesson) {
         // LessonModel.addLesson(lesson)
-        console.log(lesson)
+        // console.log(lesson)
     }
 
-    
+    onBack() {
+        this.props.history.goBack()        
+        this.props.history.goBack()        
+    }
+
     componentDidMount() {
-
-        if (this.props.location.pathname == '/') {}
-    
-
+        console.log(this.props.history.action)
         if(this.props.activated)
             this.setState({ active: true })
         else {
@@ -76,7 +77,7 @@ class CourseSelector extends Component {
     
         return (
             <>  <CourseSelectorBack>
-                <CourseSelectorBackground onClick={() => {this.nextPath('./')}}></CourseSelectorBackground>
+                <CourseSelectorBackground onClick={() => {this.onBack()}}></CourseSelectorBackground>
                 <CourseSelectorStyle 
                 main={this.props.main}
                 active={this.state.active}>

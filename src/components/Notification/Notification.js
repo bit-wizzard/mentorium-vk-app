@@ -12,7 +12,7 @@ class Notification extends Component {
                             ]
 
         let noti_text = notifications[this.props.type];
-        console.log(noti_text)
+        // console.log(noti_text)
         return (
             <>
                 <NotificationStyle>
