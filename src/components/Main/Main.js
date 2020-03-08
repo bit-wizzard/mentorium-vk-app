@@ -15,8 +15,6 @@ class Main extends Component {
             <div className='selectorInnerActivated'
             onClick={this.onAddLesson(data)}
             key={i}>
-                <Text size='default'>{data.name}</Text>
-                <Text size='default'>({data.language})</Text>
             </div>
         ))
 

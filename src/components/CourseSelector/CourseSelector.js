@@ -8,16 +8,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronUp } from '@fortawesome/free-solid-svg-icons'
 import { withRouter, Link } from 'react-router-dom'
 
-import { LessonModel } from '../../models/lesson'
+import LessonModel from '../../models/lesson'
+import { observer } from 'mobx-react'
 
 class CourseSelector extends Component {
 
-    constructor(props) {
-        super()
-        this.state = {
+        state = {
             active: false,
         }
-    }
 
     nextPath(path) {
         if(path != this.props.location.pathname)
@@ -25,8 +23,9 @@ class CourseSelector extends Component {
     }
 
     onAddLesson(lesson) {
-        // LessonModel.addLesson(lesson)
-        // console.log(lesson)
+            LessonModel.addLesson(lesson)
+            console.log(lesson)
+        
     }
 
     onBack() {
@@ -36,17 +35,7 @@ class CourseSelector extends Component {
     }
 
     componentDidMount() {
-        console.log(this.props.history.action)
-        if(this.props.activated)
-            this.setState({ active: true })
-        else {
-            // setTimeout(() => {
-            //     this.setState({
-            //         active: true
-            //     })
-            // }, 0)
-            this.setState({ active: true })
-        }
+        this.setState({active: true})
     }    
     
     render() {
@@ -109,4 +98,4 @@ class CourseSelector extends Component {
     }
 }
 
-export default withRouter(CourseSelector)
+export default withRouter(observer(CourseSelector))
