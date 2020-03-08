@@ -39,7 +39,6 @@ class Main extends Component {
                             { course }
                         </div>
                 </MainStyle>
-                <Bottom/>
             </>
         )
     }

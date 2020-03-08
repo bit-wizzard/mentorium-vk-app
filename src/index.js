@@ -12,6 +12,7 @@ import Main from './components/Main/Main'
 import Bottom from './components/Bottom/Bottom'
 import CourseSelector from './components/CourseSelector/CourseSelector';
 import Verification from './components/Verification/Verification'
+import CoursePage from './components/CoursePage/CoursePage';
 
 // Init VK  Mini App
 bridge.send('VKWebAppInit');
@@ -34,7 +35,7 @@ ReactDOM.render(
                 return (
                     <>
                         <Main/>
-                        <Bottom/>
+                        <Bottom type='session'/>
                     </>
                 )
             }}
@@ -47,7 +48,7 @@ ReactDOM.render(
                     <>
                         <Main/>
                         <CourseSelector/>
-                        <Bottom/>
+                        <Bottom type='session'/>
                     </>
                 )
             }}
@@ -60,7 +61,7 @@ ReactDOM.render(
                     <>
                         <Main/>
                         <CourseSelector activated/>
-                        <Bottom activated/>
+                        <Bottom activated type='session'/>
                     </>
                 )
             }}
@@ -72,8 +73,19 @@ ReactDOM.render(
                 return (
                     <>
                         <Main/>
-                        <Bottom/>
+                        <Bottom type='session'/>
                         <Verification/>
+                    </>
+                )
+            }}/>
+            <Route
+            exact
+            path="/course/:id"
+            render={() => {
+                return (
+                    <>
+                        <CoursePage/>
+                        <Bottom type='test'/>
                     </>
                 )
             }}/>

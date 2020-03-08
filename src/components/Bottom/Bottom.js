@@ -25,8 +25,9 @@ class Bottom extends Component {
     render() {
         return (
             <>
+            {this.props.type === 'session' ?
+            <>
                 <BottomStyle activated={this.props.activated}>
-                        {/* <CourseSelector></CourseSelector> */}
                     <BottomInner active={this.state.active}>
                         <div className='caption' onClick={() => this.nextPath('/new')}>
                             <FontAwesomeIcon icon={faPlus} />
@@ -34,6 +35,27 @@ class Bottom extends Component {
                         </div>
                     </BottomInner>
                 </BottomStyle>
+            </>
+            :
+            <>
+            {this.props.type === 'test' ?
+                <>
+                <BottomStyle>
+                    <BottomInner>
+                        <div className='caption' onClick={() => this.nextPath('/new')}>
+                            <FontAwesomeIcon icon={faPlus} />
+                            <Text size='default'>Начать новый тест</Text>
+                        </div>
+                    </BottomInner>
+                </BottomStyle>
+                </>
+                :
+                <>
+                //this row for submit button
+                </>
+            }
+            </>
+            }
             </>
         )
     }
