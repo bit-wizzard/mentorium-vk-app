@@ -17,7 +17,7 @@ export const BottomInner = styled.div `
     .caption {
         display: grid;
         height: auto;
-        padding: 2rem 0;
+        padding: 1rem 0 2rem 0;
         grid-template-columns: auto 1fr;
         align-items: center;
         grid-gap: 0.5rem;
