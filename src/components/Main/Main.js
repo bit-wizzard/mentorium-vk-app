@@ -5,17 +5,21 @@ import Notification from '../Notification/Notification'
 import Bottom from '../Bottom/Bottom'
 
 class Main extends Component {
-
-<<<<<<< HEAD
-
-=======
-    // componentDidMount() {
-    //     if(this.props.history.action === "POP"){
-
-    //     }
-    // }
->>>>>>> a0352ad96a5ec70b06061e8dcd8f3f81c97f9365
+    
     render() {
+
+        let courses = [
+        ]
+
+        let course = courses.map((data, i) => (
+            <div className='selectorInnerActivated'
+            onClick={this.onAddLesson(data)}
+            key={i}>
+                <Text size='default'>{data.name}</Text>
+                <Text size='default'>({data.language})</Text>
+            </div>
+        ))
+
         return (
             <>
                 <MainStyle>
