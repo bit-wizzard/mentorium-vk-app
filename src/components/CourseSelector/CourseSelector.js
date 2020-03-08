@@ -28,8 +28,7 @@ class CourseSelector extends Component {
 
     onAddLesson(lesson) {
             LessonModel.addLesson(lesson)
-            console.log(lesson)
-        
+            this.onBack()
     }
 
     onBack() {

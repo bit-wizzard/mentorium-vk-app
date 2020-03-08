@@ -5,6 +5,8 @@ import Notification from '../Notification/Notification'
 import Bottom from '../Bottom/Bottom'
 import Text from '../Text/Text'
 import Course from '../Course/Course'
+import LessonModel from '../../models/lesson'
+
 class Main extends Component {
 
     constructor() {
@@ -14,23 +16,16 @@ class Main extends Component {
         }
     }
 
-    courses = [
-        {
-            name: 'hello',
-            language: 'rsu',
-            id: '1'
-        },
-        {
-            name: 'helloooo',
-            language: 'yopta',
-            id: '2'
-        }
-    ]
+    courses = LessonModel.lessons
 
 
     componentDidMount() {
         if(this.courses.length > 0)
             this.setState({notificationCounter: 1})
+        
+        LessonModel.lessons.map(item => {
+            console.log(item)
+        })
     }    
         
     render() {
