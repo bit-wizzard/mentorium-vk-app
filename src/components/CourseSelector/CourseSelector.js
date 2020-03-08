@@ -30,6 +30,7 @@ class CourseSelector extends Component {
     }
 
     onBack() {
+        
         this.props.history.goBack()        
         this.props.history.goBack()        
     }
