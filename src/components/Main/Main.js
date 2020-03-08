@@ -6,6 +6,7 @@ import Bottom from '../Bottom/Bottom'
 
 class Main extends Component {
 
+
     render() {
         return (
             <>
