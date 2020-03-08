@@ -4,10 +4,7 @@ configure({ enforceActions: 'observed' })
 
 class LessonModel {
 
-    lessons = [{
-        id: 1,
-        value: null
-    }]
+    lessons = []
 
     set(item, value) {
         this[item] = value
