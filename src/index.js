@@ -7,6 +7,7 @@ import bridge from '@vkontakte/vk-bridge';
 import App from './App';
 import './index.css'
 
+
 import Main from './components/Main/Main'
 import Bottom from './components/Bottom/Bottom'
 import CourseSelector from './components/CourseSelector/CourseSelector';

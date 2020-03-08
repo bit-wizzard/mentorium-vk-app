@@ -17,6 +17,10 @@ class Bottom extends Component {
         if(path != this.props.location.pathname)
             this.props.history.push(path)
     }
+
+    componentDidMount() {
+        
+    }
     
     render() {
         return (
