@@ -18,7 +18,8 @@ class CoursePage extends Component {
     tests = [
         {
             progress: 10,
-            date: '20.02.20'
+            date: '20.02.20',
+            id: 1
         }
     ]
     
@@ -30,14 +31,14 @@ class CoursePage extends Component {
     render() {
 
         let test = this.tests.map((data, i) => (
-            <Course test progress={data.progress} date={data.date} key={i} />
+            <Course test progress={data.progress} date={data.date} key={i} test_id={data.id} />
         ))
 
         let { name, language, code } = LessonModel.lesson
         return (
             <>
                 <CoursePageStyle>
-                <Title title={name}/>
+                <Title title={`${name} (${language})`}/>
                 <Notification type={this.state.notificationCounter} />
                 <div className='test-list'>
                     {test}

@@ -31,7 +31,7 @@ export const CourseStyle = styled.div
 `
 export const TestStyle = styled.div 
 `
-    padding: 1rem 0.5rem;
+    padding: 0.7rem 0.5rem;
     background: #fbfbfb;
     display: grid;
     grid-template-columns: 1fr auto;

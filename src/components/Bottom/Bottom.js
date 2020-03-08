@@ -51,7 +51,14 @@ class Bottom extends Component {
                 </>
                 :
                 <>
-                //this row for submit button
+                <BottomStyle>
+                    <BottomInner>
+                        <div className='caption' onClick={() => this.nextPath('/new')}>
+                            <FontAwesomeIcon icon={faPlus} />
+                            <Text size='default'>Next question</Text>
+                        </div>
+                    </BottomInner>
+                </BottomStyle>
                 </>
             }
             </>

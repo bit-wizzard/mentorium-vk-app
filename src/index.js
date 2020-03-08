@@ -13,6 +13,7 @@ import Bottom from './components/Bottom/Bottom'
 import CourseSelector from './components/CourseSelector/CourseSelector';
 import Verification from './components/Verification/Verification'
 import CoursePage from './components/CoursePage/CoursePage';
+import Test from './components/Test/Test'
 
 // Init VK  Mini App
 bridge.send('VKWebAppInit');
@@ -89,6 +90,18 @@ ReactDOM.render(
                     </>
                 )
             }}/>
+            <Route
+            exact
+            path="/test/:test_id"
+            render={() => {
+                return (
+                    <>
+                        <Test/>
+                        <Bottom type='test-content'/>
+                    </>
+                )
+            }}
+            />
         </App>
     </BrowserRouter>,
     document.getElementById("root")

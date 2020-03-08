@@ -22,6 +22,12 @@ class Course extends Component {
         this.nextPath('/course/' + id)
         LessonModel.getLessonData(this.props.id)
     }
+
+    onOpenTest(id) {
+        this.nextPath('/test/' + id)
+        LessonModel.getLessonData(this.props.id)
+        //need to add modes for the test
+    }
     
     render() {
         return (
@@ -46,7 +52,7 @@ class Course extends Component {
                 </>
                 :
                 <>
-                <TestStyle>
+                <TestStyle onClick={() => this.onOpenTest(this.props.test_id)}>
                     <div className='progress'>
                         <FontAwesomeIcon icon={faCheckCircle} color='#31B43D' size='lg'/>
                         <div>{ this.props.progress }%</div>

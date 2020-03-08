@@ -22,7 +22,7 @@ class Verification extends Component {
             <>
                 <VerificationStyle>
                     <VerificationInner>
-                        <Text>Вы уверены, что хотите удалить предмет {`${name} (${language})`} ?</Text>
+                        <Text size='default'>Вы уверены, что хотите удалить предмет {`${name} (${language})`} ?</Text>
                         <div className='options'>
                             <VerificationYes onClick={() => this.onDelete(code)}>Yes</VerificationYes>
                             <VerificationNo onClick={() => this.props.history.goBack()}>No</VerificationNo>
