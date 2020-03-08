@@ -14,6 +14,7 @@ class CourseSelector extends Component {
 
     constructor(props) {
         super()
+        
         this.state = {
             active: false,
         }
