@@ -97,7 +97,6 @@ ReactDOM.render(
                 return (
                     <>
                         <Test/>
-                        <Bottom type='test-content'/>
                     </>
                 )
             }}

@@ -11,13 +11,14 @@ export const BottomInner = styled.div `
     display: grid;
     widht: 100%;
     background: #FFB600;
-    border-radius: 30px 30px 0 0;
+    border-radius: 15px;
     justify-content: center;
+    margin: 0 1rem 1rem 1rem;
     
     .caption {
         display: grid;
         height: auto;
-        padding: 1rem 0 2rem 0;
+        padding: 1rem 0;
         grid-template-columns: auto 1fr;
         align-items: center;
         grid-gap: 0.5rem;
