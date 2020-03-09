@@ -14,16 +14,15 @@ export const CourseSelectorBackground = styled.div
 `
 
 export const CourseSelectorStyle = styled.div `
-    width: 100%;
     background: #FFB600;
     margin-top: 1rem;
-    border-radius: 30px 30px 0 0;
+    border-radius: 15px 15px 0 0;
     position: fixed;
+    margin: 0 1rem;
     left: 0;
     right: 0;
     display: grid;
     align-item: center;
-    box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.1);
 
 
     ${props => props.active ?

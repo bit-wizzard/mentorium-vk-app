@@ -7,7 +7,6 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import {  withRouter } from 'react-router-dom'
 
 class Bottom extends Component {
-    //()=>this.setState(prevState=>({active: !prevState.active}))
 
     state = {
         active: false
@@ -53,7 +52,7 @@ class Bottom extends Component {
                 <>
                 <BottomStyle>
                     <BottomInner>
-                        <div className='caption' onClick={() => this.nextPath('/new')}>
+                        <div className='caption'>
                             <FontAwesomeIcon icon={faPlus} />
                             <Text size='default'>Next question</Text>
                         </div>
