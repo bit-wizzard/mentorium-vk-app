@@ -35,7 +35,7 @@ class Test extends Component {
 
     nextQuestionHandler = () => {
         this.setState({
-            currentQuestion: this.state.currentQuestion + 1
+            currentQuestion: this.state.currentQuestion + 1 
         })
         // console.log(TestData[this.state.currentQuestion])
     }

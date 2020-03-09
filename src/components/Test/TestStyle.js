@@ -25,13 +25,10 @@ export const TestOptions = styled.div
         grid-gap: 1rem;
         padding: 1rem;
     }   
-    .selected {
-        background: yellow;
-    } 
     .correct {
-        background: green;
+        background: rgba(130, 222, 139, 0.5);
     }
     .incorrect {
-        background: red;
+        background: rgba(255, 128, 128, 0.2);
     }
 `
