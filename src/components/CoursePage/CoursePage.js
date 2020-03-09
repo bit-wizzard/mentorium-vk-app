@@ -35,14 +35,19 @@ class CoursePage extends Component {
         ))
 
         let { name, language, code } = LessonModel.lesson
+        
         return (
             <>
-                <CoursePageStyle>
-                <Title title={`${name} (${language})`}/>
-                <Notification type={this.state.notificationCounter} />
-                <div className='test-list'>
-                    {test}
-                </div>
+                <CoursePageStyle>  
+                    {name ?
+                        <Title title={`${name} (${language})`}/>
+                        :
+                        <> hello </>
+                    }
+                    <Notification type={this.state.notificationCounter} />
+                        <div className='test-list'>
+                            {test}
+                        </div>
                 </CoursePageStyle>
             </>
         )

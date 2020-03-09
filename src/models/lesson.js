@@ -26,14 +26,16 @@ class LessonModel {
     }
 
     deleteFromLessons(code) {
-        let index = this.lessons.findIndex(o => o.code == code)
-        this.lessons.splice(index, 1)
+        if(code){
+            let index = this.lessons.findIndex(o => o.code == code)
+            return this.lessons.splice(index, 1)
+        }
     }
 }
 
 decorate(LessonModel, {
     lessons: observable,
-
+    lesson: observable,
     set: action
 })
 
