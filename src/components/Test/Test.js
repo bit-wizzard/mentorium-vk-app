@@ -4,6 +4,9 @@ import { TestData } from '../../data/TestData'
 import { withRouter } from 'react-router-dom'
 import Title from '../Title/Title'
 import Bottom from '../Bottom/Bottom'
+import Text from '../Text/Text'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheckCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import { observer } from 'mobx-react'
 
 class Test extends Component {
@@ -18,26 +21,24 @@ class Test extends Component {
     loadTest = () => {
 
         const {currentQuestion} = this.state;
-        
         this.setState(() => {
             return {
                 questions: TestData[currentQuestion].question,
                 options: TestData[currentQuestion].options,
-                answers: TestData[currentQuestion].answer
+                answers: TestData[currentQuestion].answer,
+                correctAnswer: TestData[currentQuestion].answer
             }
         })
     }
 
     componentDidMount() {
         this.loadTest();
-        this.setState({ correctAnswer: TestData[this.state.currentQuestion].answer })
     }
 
     nextQuestionHandler = () => {
         this.setState({
             currentQuestion: this.state.currentQuestion + 1 
         })
-        // console.log(TestData[this.state.currentQuestion])
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -47,7 +48,9 @@ class Test extends Component {
                 return {
                     questions: TestData[currentQuestion].question,
                     options: TestData[currentQuestion].options,
-                    answers: TestData[currentQuestion].answer
+                    answers: TestData[currentQuestion].answer,
+                    correctAnswer: TestData[currentQuestion].answer,
+                    userAnswer: null
                 }
             })
         }
@@ -57,19 +60,17 @@ class Test extends Component {
         this.setState({
             userAnswer: answer
         })
-        // console.log(TestData[this.state.currentQuestion].answer)
     }
     
     render() {
         const { questions, options, currentQuestion, userAnswer, correctAnswer } = this.state;
         let isAnswerCorrect, answer
-        
+
         if(userAnswer == correctAnswer){
             isAnswerCorrect = true
         } else {
             isAnswerCorrect = false
         }
-        
         
         return (
             <>
@@ -77,11 +78,29 @@ class Test extends Component {
                     <Title title='Name of course' />
                     <div className='test-content'>
                     <TestQuestion>
-                        <div>
-                            {currentQuestion + 1} of {TestData.length}
-                        </div>
-                        <div>
-                            {questions}
+                        <div
+                            className={`test-question
+                            ${userAnswer === correctAnswer ? 'correct' :
+                            userAnswer && !isAnswerCorrect && 'incorrect' }`}
+                        >
+                            <div className='status'>
+                            <Text type='secondary'>
+                                {currentQuestion + 1} из {TestData.length}
+                            </Text>
+                            {userAnswer === correctAnswer ?
+                            <>
+                                <FontAwesomeIcon icon={faCheckCircle} color='#31B43D' size='lg' />
+                            </>
+                            :
+                            userAnswer && !isAnswerCorrect &&
+                            <>
+                            <FontAwesomeIcon icon={faTimesCircle} color='#FF8080' size='lg' />
+                            
+                            </>}
+                            </div>
+                            <div>
+                                {questions}
+                            </div>
                         </div>
                     </TestQuestion>
                     <TestOptions>

@@ -3,7 +3,7 @@ import { BottomStyle, BottomInner } from './BottomStyle'
 import Text from '../Text/Text'
 import CourseSelector from '../CourseSelector/CourseSelector'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import { faPlus, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import {  withRouter } from 'react-router-dom'
 
 class Bottom extends Component {
@@ -53,8 +53,8 @@ class Bottom extends Component {
                 <BottomStyle>
                     <BottomInner>
                         <div className='caption'>
-                            <FontAwesomeIcon icon={faPlus} />
-                            <Text size='default'>Next question</Text>
+                            <Text size='default'>Следующий вопрос</Text>
+                            <FontAwesomeIcon icon={faChevronRight} />
                         </div>
                     </BottomInner>
                 </BottomStyle>

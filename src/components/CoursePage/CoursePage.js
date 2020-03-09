@@ -26,7 +26,12 @@ class CoursePage extends Component {
     componentDidMount() {
         if(this.tests.length > 0)
             this.setState({notificationCounter: 3})
-    }   
+    }
+    
+    componentDidUpdate() {
+        LessonModel.getLessonData(this.props.match.params.id)
+        console.log(this.props.match.params.id)
+    }
 
     render() {
 
