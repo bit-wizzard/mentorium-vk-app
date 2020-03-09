@@ -25,7 +25,7 @@ class Course extends Component {
 
     onOpenTest(id) {
         this.nextPath('/test/' + id)
-        LessonModel.getLessonData(this.props.id)
+        LessonModel.getLessonData(this.props.test_id)
         //need to add modes for the test
     }
     
