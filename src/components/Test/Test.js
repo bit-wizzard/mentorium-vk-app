@@ -5,6 +5,7 @@ import { withRouter } from 'react-router-dom'
 import Title from '../Title/Title'
 import Bottom from '../Bottom/Bottom'
 import Text from '../Text/Text'
+import QuestionCard from '../QuestionCard/QuestionCard'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheckCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import { observer } from 'mobx-react'
@@ -17,23 +18,23 @@ class Test extends Component {
         options: [],
         correctAnswer: null,
         testEnd: false,
-        score: 0
+        score: 0,
+        questions: TestData.map(data => data.question),
     }
-
     
     loadTest = () => {
 
         const {currentQuestion} = this.state;
         this.setState(() => {
             return {
-                questions: TestData[currentQuestion].question,
+                questions: TestData.map(data => data.question),
                 options: TestData[currentQuestion].options,
                 answers: TestData[currentQuestion].answer,
                 correctAnswer: TestData[currentQuestion].answer
             }
         })
     }
-
+    
     componentDidMount() {
         this.loadTest();
     }
@@ -58,7 +59,7 @@ class Test extends Component {
         if(this.state.currentQuestion !== prevState.currentQuestion) {
             this.setState(() => {
                 return {
-                    questions: TestData[currentQuestion].question,
+                    questions: TestData.map(data => data.question),
                     options: TestData[currentQuestion].options,
                     answers: TestData[currentQuestion].answer,
                     correctAnswer: TestData[currentQuestion].answer,
@@ -134,10 +135,20 @@ class Test extends Component {
         return (
             <>
                 <TestStyle>
+                    <div className='test-header'>
                     <Title title='Name of course' />
                     <div className='test-content'>
                     <TestQuestion>
+                        <div className={`test-content-inner active-slide-${currentQuestion}`}>
+                        <div 
+                            className='test-question-wrapper'
+                            style={{
+                                'transform': `translateX(-${currentQuestion*(100/TestData.length)}%)`
+                            }}
+                        >
+                        {questions.map((data, i) => 
                         <div
+                            key={i}
                             className={`test-question
                             ${userAnswer === correctAnswer ? 'correct' :
                             userAnswer && !isAnswerCorrect && 'incorrect' }`}
@@ -157,11 +168,17 @@ class Test extends Component {
                             
                             </>}
                             </div>
-                            <div>
-                                {questions}
+                            <div className='questions'>
+                                {data}
                             </div>
                         </div>
+                        )}
+                        <div></div>
+                        </div>
+                        </div>
                     </TestQuestion>
+                    </div>
+                    </div>
                     <TestOptions>
                             {options.map(option => (
                                 <div
@@ -178,7 +195,6 @@ class Test extends Component {
                                 </div>
                             ))}
                     </TestOptions>
-                    </div>
                     { currentQuestion < TestData.length - 1 &&
                     <div onClick={this.nextQuestionHandler}>
                         <Bottom type='next-question'/>
