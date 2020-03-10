@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { BottomStyle, BottomInner } from './BottomStyle'
 import Text from '../Text/Text'
-import CourseSelector from '../CourseSelector/CourseSelector'
+// import CourseSelector from '../CourseSelector/CourseSelector'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlus, faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { faPlus, faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import {  withRouter } from 'react-router-dom'
 
 class Bottom extends Component {
@@ -24,7 +24,7 @@ class Bottom extends Component {
     render() {
         return (
             <>
-            {this.props.type === 'session' ?
+            {this.props.type === 'session' &&
             <>
                 <BottomStyle activated={this.props.activated}>
                     <BottomInner active={this.state.active}>
@@ -35,9 +35,8 @@ class Bottom extends Component {
                     </BottomInner>
                 </BottomStyle>
             </>
-            :
-            <>
-            {this.props.type === 'test' ?
+            }
+            {this.props.type === 'test' &&
                 <>
                 <BottomStyle>
                     <BottomInner>
@@ -48,7 +47,8 @@ class Bottom extends Component {
                     </BottomInner>
                 </BottomStyle>
                 </>
-                :
+            }
+            {this.props.type === 'next-question' &&
                 <>
                 <BottomStyle>
                     <BottomInner>
@@ -60,7 +60,29 @@ class Bottom extends Component {
                 </BottomStyle>
                 </>
             }
-            </>
+            {this.props.type === 'submit' &&
+                <>
+                <BottomStyle>
+                    <BottomInner>
+                        <div className='caption'>
+                            <Text size='default'>Submit</Text>
+                            <FontAwesomeIcon icon={faChevronRight} />
+                        </div>
+                    </BottomInner>
+                </BottomStyle>
+                </>
+            }
+            {this.props.type === 'end-test' &&
+                <>
+                <BottomStyle>
+                    <BottomInner>
+                        <div className='caption'>
+                            <FontAwesomeIcon icon={faChevronLeft} />
+                            <Text size='default'>Go back to MyTests</Text>
+                        </div>
+                    </BottomInner>
+                </BottomStyle>
+                </>
             }
             </>
         )

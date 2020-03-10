@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { TestStyle, TestQuestion, TestOptions } from './TestStyle'
+import { TestStyle, TestQuestion, TestOptions, TestRusults } from './TestStyle'
 import { TestData } from '../../data/TestData'
 import { withRouter } from 'react-router-dom'
 import Title from '../Title/Title'
@@ -15,8 +15,11 @@ class Test extends Component {
         userAnswer: null,
         currentQuestion: 0,
         options: [],
-        correctAnswer: null
+        correctAnswer: null,
+        testEnd: false,
+        score: 0
     }
+
     
     loadTest = () => {
 
@@ -36,9 +39,18 @@ class Test extends Component {
     }
 
     nextQuestionHandler = () => {
+
+        const {userAnswer, correctAnswer, score} = this.state
+        
         this.setState({
             currentQuestion: this.state.currentQuestion + 1 
         })
+        //increment the score
+        if(userAnswer === correctAnswer) {
+            this.setState({
+                score: score + 1
+            })
+        }
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -61,9 +73,56 @@ class Test extends Component {
             userAnswer: answer
         })
     }
+
+    finishHandler = () => {
+
+        const {userAnswer, correctAnswer, score} = this.state
+        
+        if(this.state.currentQuestion === TestData.length - 1) {
+            this.setState({
+                testEnd: true
+            })
+
+            //increment the score for final question
+            if(userAnswer === correctAnswer) {
+                this.setState({
+                    score: score + 1
+                })
+            }
+        }
+    }
     
     render() {
-        const { questions, options, currentQuestion, userAnswer, correctAnswer } = this.state;
+        const { questions, options, currentQuestion, userAnswer, correctAnswer, testEnd } = this.state;
+
+        //new return to show final score
+        if(testEnd) {
+            return (
+                <TestRusults>
+                <div>hello, your final score is {this.state.score}</div>
+                <div className='test-answer'>
+                    need to remember:
+                    <div>
+                        {TestData.map((data, index) => (
+                            <div
+                            className='test-answer_item'
+                            key={index}>  
+                                <Text type='secondary'>
+                                    (incorrect ans number) из {TestData.length}
+                                </Text>
+                                <div> 
+                                {data.question}
+                                </div>
+                                {data.answer}
+                            </div>
+                        ))}
+                    </div>
+                </div>
+                <Bottom type='end-test'/>
+                </TestRusults>
+            )
+        }
+
         let isAnswerCorrect, answer
 
         if(userAnswer == correctAnswer){
@@ -120,9 +179,16 @@ class Test extends Component {
                             ))}
                     </TestOptions>
                     </div>
+                    { currentQuestion < TestData.length - 1 &&
                     <div onClick={this.nextQuestionHandler}>
-                    <Bottom></Bottom>
+                        <Bottom type='next-question'/>
                     </div>
+                    }
+                    { currentQuestion === TestData.length - 1 &&
+                    <div onClick={this.finishHandler}>
+                        <Bottom type='submit'/>
+                    </div>
+                    }
                 </TestStyle>
             </>
         )

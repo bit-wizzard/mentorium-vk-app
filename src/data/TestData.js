@@ -8,7 +8,7 @@ export const TestData = [
     {
         id: 1,
         question: 'Не следует, однако забывать, что новая модель организационной деятельности способствует подготовки и реализации?',
-        options: ['Bassan', 'Shmargun', 'Lirinirill', 'Darnurda'],
+        options: ['Bassan', 'Shmargun', 'Lirinirill', 'Darnurda', 'Darnurda'],
         answer: 'Bassan'
     },
     {
