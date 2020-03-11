@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.css"],"names":[],"mappings":"AAAA,KACI,+BAAiC,CACjC,WAAY,CACZ,YAAa,CACb,QAAS,CACT,iBACJ","file":"main.9306b226.chunk.css","sourcesContent":["body {\n    font-family: 'Nunito', sans-serif;\n    height: auto;\n    padding: 1rem;\n    margin: 0;\n    overflow-x: hidden;\n}\n"]}
