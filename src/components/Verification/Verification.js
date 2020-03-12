@@ -11,12 +11,12 @@ class Verification extends Component {
         LessonModel.deleteFromLessons(code)
     }
 
-    componentDidMount() {
-        LessonModel.getLessonData(this.props.match.params.id)
-    }
+    // componentDidMount() {
+    //     LessonModel.getLessonData(this.props.match.params.id)
+    // }
 
     render() {
-        let { name, language, code } = LessonModel.lesson
+        let { name, language, code } = this.props.lesson
         return (
             <>
                 <VerificationStyle>
