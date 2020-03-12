@@ -5,7 +5,7 @@ import Notification from '../Notification/Notification'
 import Bottom from '../Bottom/Bottom'
 import Course from '../Course/Course'
 import LessonModel from '../../models/lesson'
-// import { CSSTransition, TransitionGroup } from 'react-transition-group'
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import disableBrowserBackButton from 'disable-browser-back-navigation';
 
 class Main extends Component {
@@ -30,13 +30,7 @@ class Main extends Component {
     
     render() {
         
-        let course = this.courses.map((data, i) => (
-            <Course 
-            title={data.name} 
-            progress='0' 
-            language={data.language} 
-            id={data.code} 
-            key={i}/> ))
+        
 
         return (
             <>
@@ -44,7 +38,25 @@ class Main extends Component {
                     <Title main ></Title>
                         <Notification type={this.state.notificationCounter}/>
                         <div className='course-list'>
-                            { course }
+                            <TransitionGroup>
+                        {
+                            this.courses.map((data, i) => (
+                                <CSSTransition
+                                timeout={200}
+                                classNames='items'
+                                key={i}
+                                >
+                                    <Course 
+                                        title={data.name} 
+                                        progress='0' 
+                                        language={data.language} 
+                                        id={data.code} 
+                                        key={i}/> 
+                                </CSSTransition>
+                            ))
+                         }
+                        </TransitionGroup>
+                            {/* { course } */}
                         </div>
                 </MainStyle>
                 <Bottom type='main'/>
