@@ -29,12 +29,13 @@ export const BottomStyle = styled.div `
     background: #FFB600;
     display: grid;
     margin: 0 1rem 1rem 1rem;
-    // border-radius: 15px;
+    transition: 0.1s;
     
     .caption {
         display: grid;
         padding: 1rem;
         justify-content: center;
+        z-index: 999;
         div {
             display: grid;
             grid-template-columns: auto 1fr;
@@ -49,22 +50,34 @@ export const BottomStyle = styled.div `
     .course-selector-inner {
         position: absolute;
         width: 100%;
-        bottom: 0;
-        z-index: 10;
     }
-    ${props => props.bottomOpened  ? `
-    .course-selector-inner {
-        bottom: -100px
+    ${props => props.bottomOpened ? 
+        `
+        .course-selector-inner {
+                bottom: -1rem;
+                z-index: 10;
+                transition: 0.2s ease-in-out;
+                opacity: 1;
+            }
+        ` 
+        : 
+        `
+            .course-selector-inner {
+                // bottom: -${props => props.margin}px;
+                // z-index: -900;
+                bottom: -200px;
+                opacity: 0;
+                transition: 0.2s ease-in-out;
+            }
+        `
     }
-    ` 
-    :
-    `
-    .course-selector-inner {
-        height: 0;
+    :active {
+        background: rgb(235, 168, 0);
+        transition: 0.1s;
     }
-    `}
 
-    `
+`
+
     export const BottomQuestion = styled.div 
 `
     position: fixed;

@@ -2,8 +2,7 @@ import styled from 'styled-components'
 
 
 export const CourseSelectorStyle = styled.div `
-    background: #fbfbfb;
-    margin-top: 1rem;
+    background: red;
     display: grid;
     border-radius: 10px 10px 0 0;
     display: grid;

@@ -71,7 +71,6 @@ ReactDOM.render(
                 return (
                     <>
                         <CoursePage/>
-                        <Bottom type='test'/>
                     </>
                 )
             }}/>

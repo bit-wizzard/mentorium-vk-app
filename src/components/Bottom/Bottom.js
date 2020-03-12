@@ -6,7 +6,6 @@ import CourseSelector from '../CourseSelector/CourseSelector'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import {  withRouter } from 'react-router-dom'
-import { CSSTransition } from 'react-transition-group'
 
 class Bottom extends Component {
 
@@ -23,15 +22,16 @@ class Bottom extends Component {
             {this.props.type === "main" &&
             <BottomBack>
                 <BottomBackground onClick={() => this.setState({bottomOpened: false})} bottomOpened={this.state.bottomOpened}></BottomBackground>
-                <BottomStyle bottomOpened={this.state.bottomOpened}>
-                    {this.state.bottomOpened &&
-                    <>
+                <BottomStyle 
+                bottomOpened={this.state.bottomOpened}>
+                    
                         <div className='course-selector' onClick={() => this.setState({bottomOpened: false})}> 
-                            <div className='course-selector-inner'>
+                            <div 
+                            ref = { (divElement) => {this.divElement = divElement}}
+                            className='course-selector-inner'>
                                 <CourseSelector></CourseSelector>
                             </div>
                         </div>
-                    </>}
                         <div className='caption' onClick={() => this.setState({bottomOpened: true})}>
                             <div>
                             <FontAwesomeIcon icon={faPlus} />
@@ -65,19 +65,20 @@ class Bottom extends Component {
                 </BottomStyle>
             </>
             } */}
-            {/* {this.props.type === 'test' &&
+            {this.props.type === 'new-test' &&
                 <>
+                <BottomQuestion>
                 <BottomStyle>
-                    <BottomInner>
-                        <div className='caption' onClick={() => this.nextPath('/new')}>
+                        <div className='caption'>
+                            <div>
                             <FontAwesomeIcon icon={faPlus} />
                             <Text size='default'>Начать новый тест</Text>
+                            </div>
                         </div>
-                    </BottomInner>
                 </BottomStyle>
+                </BottomQuestion>
                 </>
             }
-            */}
             {this.props.type === 'next-question' &&
                 <>
                 <BottomQuestion>

@@ -5,6 +5,7 @@ import Title from '../Title/Title'
 import LessonModel from '../../models/lesson'
 import Notification from '../Notification/Notification'
 import Course from '../Course/Course'
+import Bottom from '../Bottom/Bottom'
 
 class CoursePage extends Component { 
     
@@ -51,6 +52,7 @@ class CoursePage extends Component {
                             {test}
                         </div>
                 </CoursePageStyle>
+                <Bottom type='new-test'/>
             </>
         )
     }
