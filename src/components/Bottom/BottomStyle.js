@@ -54,7 +54,8 @@ export const BottomStyle = styled.div `
     ${props => props.bottomOpened ? 
         `
         .course-selector-inner {
-                bottom: -1rem;
+                bottom: 0rem;
+                height: 10px;
                 z-index: 10;
                 transition: 0.2s ease-in-out;
                 opacity: 1;
@@ -65,7 +66,8 @@ export const BottomStyle = styled.div `
             .course-selector-inner {
                 // bottom: -${props => props.margin}px;
                 // z-index: -900;
-                bottom: -200px;
+                bottom: 0;
+                height: 0;
                 opacity: 0;
                 transition: 0.2s ease-in-out;
             }

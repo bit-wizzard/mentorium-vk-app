@@ -52,7 +52,9 @@ class CoursePage extends Component {
                             {test}
                         </div>
                 </CoursePageStyle>
+                <div onClick={() => console.log('hello')}> 
                 <Bottom type='new-test'/>
+                </div>
             </>
         )
     }
