@@ -6,6 +6,7 @@ import CourseSelector from '../CourseSelector/CourseSelector'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import {  withRouter } from 'react-router-dom'
+import { CSSTransition } from 'react-transition-group'
 
 class Bottom extends Component {
 
@@ -26,7 +27,9 @@ class Bottom extends Component {
                     {this.state.bottomOpened &&
                     <>
                         <div className='course-selector' onClick={() => this.setState({bottomOpened: false})}> 
-                            <CourseSelector></CourseSelector>
+                            <div className='course-selector-inner'>
+                                <CourseSelector></CourseSelector>
+                            </div>
                         </div>
                     </>}
                         <div className='caption' onClick={() => this.setState({bottomOpened: true})}>

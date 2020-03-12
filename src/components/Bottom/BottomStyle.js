@@ -42,7 +42,13 @@ export const BottomStyle = styled.div `
     }
 
     .course-selector {
-        margin: 0 1rem;
+        position: relative;
+    }
+    .course-selector-inner {
+        position: absolute;
+        width: 100%;
+        bottom: -1rem;
+        z-index: -222;
     }
 `
 export const BottomQuestion = styled.div 
