@@ -9,7 +9,7 @@ import QuestionCard from '../QuestionCard/QuestionCard'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheckCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import { observer } from 'mobx-react'
-
+import LessonModel from '../../models/lesson'
 class Test extends Component {
 
     constructor(props) {
@@ -32,7 +32,6 @@ class Test extends Component {
     
     
     loadTest = () => {
-
         const {currentQuestion} = this.state;
         this.setState(() => {
             return {
@@ -46,7 +45,7 @@ class Test extends Component {
     
     componentDidMount() {
         this.loadTest();
-        console.log(this.state.width)
+        console.log(LessonModel.lesson)
 
         const elHeight = this.divElement.clientHeight;
         this.setState({ elHeight })
@@ -153,7 +152,7 @@ class Test extends Component {
                     ref = { (divElement) => {this.divElement = divElement}}
                     >
                         <div className='test-header-fixed'>
-                    <Title title='Name of course' />
+                    <Title title={LessonModel.lesson.name} />
                     <div className='test-content'>
                     <TestQuestion>
                         <div className={`test-content-inner active-slide-${currentQuestion}`}>

@@ -15,6 +15,7 @@ class CoursePage extends Component {
         }
     }
 
+    
     tests = [
         {
             progress: 10,
@@ -27,6 +28,10 @@ class CoursePage extends Component {
         if(this.tests.length > 0)
             this.setState({notificationCounter: 3})
     }
+
+    // componentWillMount() {
+    //     LessonModel.getLessonData(this.props.match.params.id)
+    // }
     
     componentDidUpdate() {
         LessonModel.getLessonData(this.props.match.params.id)
@@ -36,7 +41,7 @@ class CoursePage extends Component {
     render() {
 
         let test = this.tests.map((data, i) => (
-            <Course test progress={data.progress} date={data.date} key={i} test_id={data.id} />
+            <Course test progress={data.progress} date={data.date} key={i} test_id={data.id} onClick={LessonModel.getLessonData(this.props.match.params.id)} />
         ))
 
         let { name, language, code } = LessonModel.lesson
