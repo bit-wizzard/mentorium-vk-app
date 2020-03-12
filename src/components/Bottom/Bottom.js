@@ -1,15 +1,19 @@
 import React, { Component } from 'react'
-import { BottomStyle, BottomInner } from './BottomStyle'
+import { BottomStyle, BottomQuestion, BottomCourseSelector, BottomBackground,
+BottomBack } from './BottomStyle'
 import Text from '../Text/Text'
-// import CourseSelector from '../CourseSelector/CourseSelector'
+import CourseSelector from '../CourseSelector/CourseSelector'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import {  withRouter } from 'react-router-dom'
 
 class Bottom extends Component {
 
-    state = {
-        active: false
+    constructor() {
+        super();
+        this.state = {
+            bottomOpened: false
+        }
     }
 
     nextPath(path) {
@@ -17,26 +21,53 @@ class Bottom extends Component {
             this.props.history.push(path)
     }
 
-    componentDidMount() {
-        
-    }
-    
     render() {
         return (
             <>
-            {this.props.type === 'session' &&
+            {this.props.type === "main" &&
+            <BottomBack>
+                <BottomBackground onClick={() => this.setState({bottomOpened: false})} bottomOpened={this.state.bottomOpened}></BottomBackground>
+                <BottomStyle >
+                    {this.state.bottomOpened &&
+                    <>
+                        <div className='course-selector' onClick={() => this.setState({bottomOpened: false})}> 
+                            <CourseSelector></CourseSelector>
+                        </div>
+                    </>}
+                        <div className='caption' onClick={() => this.setState({bottomOpened: true})}>
+                            <div>
+                            <FontAwesomeIcon icon={faPlus} />
+                            <Text size='default'>Добавить новый предмет</Text>
+                            </div>
+                        </div>
+                </BottomStyle>
+            </BottomBack>
+            }
+            {/* {this.props.type === 'session' &&
             <>
-                <BottomStyle activated={this.props.activated}>
-                    <BottomInner active={this.state.active}>
-                        <div className='caption' onClick={() => this.nextPath('/new')}>
+                <BottomStyle onClick={() => this.setState({bottomOpened: true})}>
+                        {!this.state.bottomOpened ?
+                        <BottomInner>
+                        <div className='caption'>
+                            <div>
+                            <FontAwesomeIcon icon={faPlus} />
+                            <Text size='default'>Добавить новый предмет</Text>
+                            </div>
+                        </div>
+                        </BottomInner>
+                        :
+                        <BottomCourseSelector>
+                        <div className='course-selector'></div>
+                         <div className='caption'>
                             <FontAwesomeIcon icon={faPlus} />
                             <Text size='default'>Добавить новый предмет</Text>
                         </div>
-                    </BottomInner>
+                        </BottomCourseSelector>
+                        }
                 </BottomStyle>
             </>
-            }
-            {this.props.type === 'test' &&
+            } */}
+            {/* {this.props.type === 'test' &&
                 <>
                 <BottomStyle>
                     <BottomInner>
@@ -48,30 +79,36 @@ class Bottom extends Component {
                 </BottomStyle>
                 </>
             }
+            */}
             {this.props.type === 'next-question' &&
                 <>
+                <BottomQuestion>
                 <BottomStyle>
-                    <BottomInner>
                         <div className='caption'>
+                            <div>
                             <Text size='default'>Следующий вопрос</Text>
                             <FontAwesomeIcon icon={faChevronRight} />
+                            </div>
                         </div>
-                    </BottomInner>
                 </BottomStyle>
+                </BottomQuestion>
                 </>
             }
             {this.props.type === 'submit' &&
                 <>
+                <BottomQuestion>
                 <BottomStyle>
-                    <BottomInner>
                         <div className='caption'>
+                            <div>
                             <Text size='default'>Submit</Text>
                             <FontAwesomeIcon icon={faChevronRight} />
+                            </div>
                         </div>
-                    </BottomInner>
                 </BottomStyle>
+                </BottomQuestion>
                 </>
             }
+            {/* 
             {this.props.type === 'end-test' &&
                 <>
                 <BottomStyle>
@@ -83,7 +120,7 @@ class Bottom extends Component {
                     </BottomInner>
                 </BottomStyle>
                 </>
-            }
+            }  */}
             </>
         )
     }

@@ -12,15 +12,24 @@ import { observer } from 'mobx-react'
 
 class Test extends Component {
 
-    state = {
-        userAnswer: null,
-        currentQuestion: 0,
-        options: [],
-        correctAnswer: null,
-        testEnd: false,
-        score: 0,
-        questions: TestData.map(data => data.question),
+    constructor(props) {
+        super(props);
+        this.state = {
+            width: props.window,
+            userAnswer: null,
+            currentQuestion: 0,
+            options: [],
+            correctAnswer: null,
+            testEnd: false,
+            score: 0,
+            questions: TestData.map(data => data.question),
+            elHeight: 0
+        }
     }
+    componentWillMount() {
+        this.setState({width: window.innerWidth})   
+    }
+    
     
     loadTest = () => {
 
@@ -37,8 +46,13 @@ class Test extends Component {
     
     componentDidMount() {
         this.loadTest();
-    }
+        console.log(this.state.width)
 
+        const elHeight = this.divElement.clientHeight;
+        this.setState({ elHeight })
+
+    }
+    
     nextQuestionHandler = () => {
 
         const {userAnswer, correctAnswer, score} = this.state
@@ -135,7 +149,10 @@ class Test extends Component {
         return (
             <>
                 <TestStyle>
-                    <div className='test-header'>
+                    <div className='test-header'
+                    ref = { (divElement) => {this.divElement = divElement}}
+                    >
+                        <div className='test-header-fixed'>
                     <Title title='Name of course' />
                     <div className='test-content'>
                     <TestQuestion>
@@ -155,7 +172,7 @@ class Test extends Component {
                         >
                             <div className='status'>
                             <Text type='secondary'>
-                                {currentQuestion + 1} из {TestData.length}
+                                Вопрос {currentQuestion + 1} из {TestData.length}
                             </Text>
                             {userAnswer === correctAnswer ?
                             <>
@@ -179,8 +196,12 @@ class Test extends Component {
                     </TestQuestion>
                     </div>
                     </div>
-                    <TestOptions>
+                    </div>
+                    <TestOptions 
+                    margin={this.state.elHeight}
+                    width={this.state.width}>
                             {options.map(option => (
+                        <div className="test-option-wrapper">
                                 <div
                                 key={option.id}
                                 className={`test-option
@@ -193,6 +214,7 @@ class Test extends Component {
                                 >
                                     {option}
                                 </div>
+                            </div>
                             ))}
                     </TestOptions>
                     { currentQuestion < TestData.length - 1 &&

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { NotificationStyle } from './NotificationStyle'
 import Text from '../Text/Text'
+import {TransitionGroup, CSSTransition} from 'react-transition-group'
 
 class Notification extends Component {
     render() {
@@ -16,7 +17,7 @@ class Notification extends Component {
         return (
             <>
                 <NotificationStyle>
-                    <Text size='small' type='secondary'>{noti_text}</Text>
+                        <Text size='small' type='secondary'>{noti_text}</Text>
                 </NotificationStyle>
             </>
 

@@ -6,6 +6,7 @@ import { BrowserRouter, Route } from 'react-router-dom'
 import bridge from '@vkontakte/vk-bridge';
 import App from './App';
 import './index.css'
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
 
 
 import Main from './components/Main/Main'
@@ -35,8 +36,7 @@ ReactDOM.render(
             render={() => {
                 return (
                     <>
-                        <Main/>
-                        <Bottom type='session'/>
+                        <Main/> 
                     </>
                 )
             }}
@@ -48,13 +48,12 @@ ReactDOM.render(
                 return (
                     <>
                         <Main/>
-                        <CourseSelector/>
                         <Bottom type='session'/>
                     </>
                 )
             }}
             />
-            <Route
+            {/* <Route
             exact
             path="/course-selector"
             render={() => {
@@ -66,7 +65,7 @@ ReactDOM.render(
                     </>
                 )
             }}
-            />
+            /> */}
             <Route
             exact
             path="/close/:id"

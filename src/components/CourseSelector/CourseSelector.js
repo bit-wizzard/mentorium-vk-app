@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { 
-    CourseSelectorStyle, CourseSelectorInner, CourseSelectorInnerActivated,
-    CourseSelectorBack, CourseSelectorBackground
+    CourseSelectorStyle
 } from './CourseSelectorStyle'
 import Text from '../Text/Text'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -17,9 +16,9 @@ class CourseSelector extends Component {
         super()
         
         this.state = {
-            active: false,
+            active: true,
         }
-    }
+    }    
 
     nextPath(path) {
         if(path != this.props.location.pathname)
@@ -35,13 +34,9 @@ class CourseSelector extends Component {
         this.props.history.goBack()        
         this.props.history.goBack()        
     }
-
-    componentDidMount() {
-        this.setState({active: true})
-    }    
+  
     
     render() {
-
         let courses = [
             {
                 name: "Kazakh history",
@@ -61,43 +56,20 @@ class CourseSelector extends Component {
         ]
 
         let course = courses.map((data, i) => (
-            <div className='selectorInnerActivated'
+            <div className='selector-item'
             onClick={() => this.onAddLesson(data)}
             key={i}>
                 <Text size='default'>{data.name}</Text>
                 <Text size='default'>({data.language})</Text>
             </div>
         ))
-
+        
     
         return (
-            <>  <CourseSelectorBack>
-                <CourseSelectorBackground onClick={() => {this.onBack()}}></CourseSelectorBackground>
-                <CourseSelectorStyle 
-                main={this.props.main}
-                active={this.state.active}>
-                    {this.props.activated ?
-                    <>
-                    <CourseSelectorInnerActivated>
+            <>  
+                <CourseSelectorStyle>
                         {course}
-                        <div className='selectorInnerActivated'>
-                        <Text type='secondary' size='default'>Название предмета</Text>
-                        <FontAwesomeIcon icon={faChevronUp} color='#898989'/>
-                        </div>
-                    </CourseSelectorInnerActivated>
-                    </>
-                    :
-                    <>
-                    <CourseSelectorInner 
-                    active={this.state.active}
-                    onClick={() => this.nextPath('/course-selector')}>
-                        <Text type='secondary' size='default'>Название предмета</Text>
-                        <FontAwesomeIcon icon={faChevronUp} color='#898989'/>
-                    </CourseSelectorInner>
-                    </>
-                    }
                 </CourseSelectorStyle>
-                </CourseSelectorBack>
             </>
         )
     }
