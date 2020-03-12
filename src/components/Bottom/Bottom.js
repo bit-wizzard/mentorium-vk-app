@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import { BottomStyle, BottomQuestion, BottomCourseSelector, BottomBackground,
+import { BottomStyle, BottomQuestion, BottomBackground,
 BottomBack } from './BottomStyle'
 import Text from '../Text/Text'
 import CourseSelector from '../CourseSelector/CourseSelector'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlus, faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
+import { faPlus, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import {  withRouter } from 'react-router-dom'
 
 class Bottom extends Component {
@@ -14,11 +14,6 @@ class Bottom extends Component {
         this.state = {
             bottomOpened: false
         }
-    }
-
-    nextPath(path) {
-        if(path != this.props.location.pathname)
-            this.props.history.push(path)
     }
 
     render() {

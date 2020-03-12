@@ -18,18 +18,18 @@ class LessonModel {
 
     addLesson(lesson){
         let { code } = lesson
-        if(this.lessons.findIndex(o => o.code == code) == -1) {
+        if(this.lessons.findIndex(o => o.code === code) === -1) {
             this.lessons.push(lesson)
         }
     }
 
     getLessonData(code) {
-        this.lesson = this.lessons.find(o => o.code == code)
+        this.lesson = this.lessons.find(o => o.code === code)
     }
 
     deleteFromLessons(code) {
         if(code){
-            let index = this.lessons.findIndex(o => o.code == code)
+            let index = this.lessons.findIndex(o => o.code === code)
             return this.lessons.splice(index, 1)
         }
     }

@@ -9,7 +9,7 @@ import LessonModel from '../../models/lesson'
 class Course extends Component {    
 
     nextPath(path) {
-        if(path != this.props.location.pathname)
+        if(path !== this.props.location.pathname)
             this.props.history.push(path)
     }
     

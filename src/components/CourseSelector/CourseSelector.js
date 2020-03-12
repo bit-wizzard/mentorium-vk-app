@@ -3,9 +3,7 @@ import {
     CourseSelectorStyle
 } from './CourseSelectorStyle'
 import Text from '../Text/Text'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronUp } from '@fortawesome/free-solid-svg-icons'
-import { withRouter, Link } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 
 import LessonModel from '../../models/lesson'
 import { observer } from 'mobx-react'
@@ -21,20 +19,14 @@ class CourseSelector extends Component {
     }    
 
     nextPath(path) {
-        if(path != this.props.location.pathname)
+        if(path !== this.props.location.pathname)
             this.props.history.push(path)
     }
 
     onAddLesson(lesson) {
-            LessonModel.addLesson(lesson)
-            this.onBack()
+        LessonModel.addLesson(lesson)
     }
-
-    onBack() {
-        this.props.history.goBack()        
-        this.props.history.goBack()        
-    }
-  
+ 
     
     render() {
         let courses = [

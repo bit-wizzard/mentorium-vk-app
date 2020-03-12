@@ -44,7 +44,7 @@ class CoursePage extends Component {
             <Course test progress={data.progress} date={data.date} key={i} test_id={data.id} onClick={LessonModel.getLessonData(this.props.match.params.id)} />
         ))
 
-        let { name, language, code } = LessonModel.lesson
+        let { name, language } = LessonModel.lesson
         
         return (
             <>
