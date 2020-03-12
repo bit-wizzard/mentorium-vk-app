@@ -23,7 +23,7 @@ class Bottom extends Component {
             {this.props.type === "main" &&
             <BottomBack>
                 <BottomBackground onClick={() => this.setState({bottomOpened: false})} bottomOpened={this.state.bottomOpened}></BottomBackground>
-                <BottomStyle >
+                <BottomStyle bottomOpened={this.state.bottomOpened}>
                     {this.state.bottomOpened &&
                     <>
                         <div className='course-selector' onClick={() => this.setState({bottomOpened: false})}> 

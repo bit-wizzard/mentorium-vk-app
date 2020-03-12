@@ -24,11 +24,13 @@ export const BottomBackground = styled.div
 `
 
 export const BottomStyle = styled.div `
+
+    border-radius: 15px;
     background: #FFB600;
     display: grid;
     margin: 0 1rem 1rem 1rem;
-    border-radius: 15px;
-
+    // border-radius: 15px;
+    
     .caption {
         display: grid;
         padding: 1rem;
@@ -47,18 +49,30 @@ export const BottomStyle = styled.div `
     .course-selector-inner {
         position: absolute;
         width: 100%;
-        bottom: -1rem;
-        z-index: -222;
+        bottom: 0;
+        z-index: 10;
     }
-`
-export const BottomQuestion = styled.div 
+    ${props => props.bottomOpened  ? `
+    .course-selector-inner {
+        bottom: -100px
+    }
+    ` 
+    :
+    `
+    .course-selector-inner {
+        height: 0;
+    }
+    `}
+
+    `
+    export const BottomQuestion = styled.div 
 `
     position: fixed;
     width: 100%;
     bottom: 0;
     left: 0;
-`
-export const BottomCourseSelector = styled.div 
+    `
+    export const BottomCourseSelector = styled.div 
 `
 
 `
