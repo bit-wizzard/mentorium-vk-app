@@ -29,13 +29,6 @@ class CoursePage extends Component {
             this.setState({notificationCounter: 3})
     }
 
-    // componentWillMount() {
-    //     LessonModel.getLessonData(this.props.match.params.id)
-    // }
-    
-    componentDidUpdate() {
-        LessonModel.getLessonData(this.props.match.params.id)
-    }
 
     render() {
 

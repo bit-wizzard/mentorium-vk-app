@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheckCircle, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { withRouter } from 'react-router-dom'
 import Text from '../Text/Text'
+import Verification from '../Verification/Verification'
 import LessonModel from '../../models/lesson'
 
 class Course extends Component {    
@@ -15,7 +16,6 @@ class Course extends Component {
     
     onClose(name) {
         this.nextPath('/close/' + this.props.id)
-        LessonModel.getLessonData(this.props.id)
     }
 
     onChangeDirection(id) {
@@ -25,7 +25,6 @@ class Course extends Component {
 
     onOpenTest(id) {
         this.nextPath('/test/' + id)
-        LessonModel.getLessonData(this.props.test_id)
         //need to add modes for the test
     }
     
@@ -48,6 +47,7 @@ class Course extends Component {
                     <div className='delete' onClick={() => this.onClose(this.props.title)}>
                         <FontAwesomeIcon icon={faTimes} color='#999'/>
                     </div>
+                    <Verification lesson={LessonModel.lesson}></Verification>
                 </CourseStyle>
                 </>
                 :
