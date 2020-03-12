@@ -27,7 +27,6 @@ class Bottom extends Component {
                     
                         <div className='course-selector' onClick={() => this.setState({bottomOpened: false})}> 
                             <div 
-                            ref = { (divElement) => {this.divElement = divElement}}
                             className='course-selector-inner'>
                                 <CourseSelector></CourseSelector>
                             </div>

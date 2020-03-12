@@ -10,7 +10,7 @@ export const BottomBack = styled.div
     height: 100vh;
     display: grid;
     grid-template-rows: 1fr auto;
-    z-index: -999;
+    z-index: -500;
 `
 
 export const BottomBackground = styled.div
@@ -35,6 +35,7 @@ export const BottomStyle = styled.div `
         display: grid;
         padding: 1rem;
         justify-content: center;
+        position: relative;
         z-index: 999;
         div {
             display: grid;
@@ -54,22 +55,19 @@ export const BottomStyle = styled.div `
     ${props => props.bottomOpened ? 
         `
         .course-selector-inner {
-                bottom: 0rem;
-                height: 10px;
-                z-index: 10;
-                transition: 0.2s ease-in-out;
+                bottom: 0;
                 opacity: 1;
+                transition: 0.2s;
+                z-index: 1;
             }
         ` 
         : 
         `
             .course-selector-inner {
-                // bottom: -${props => props.margin}px;
-                // z-index: -900;
-                bottom: 0;
-                height: 0;
                 opacity: 0;
-                transition: 0.2s ease-in-out;
+                bottom: -10rem;
+                transition: 0.2s;
+                z-index: -999;
             }
         `
     }
