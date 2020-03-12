@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
-import { MainStyle, MainBottom } from './MainStyle'
+import { MainStyle } from './MainStyle'
 import Title from '../Title/Title'
 import Notification from '../Notification/Notification'
 import Bottom from '../Bottom/Bottom'
-import Text from '../Text/Text'
 import Course from '../Course/Course'
 import LessonModel from '../../models/lesson'
-import { CSSTransition, TransitionGroup } from 'react-transition-group'
+// import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import disableBrowserBackButton from 'disable-browser-back-navigation';
 
 class Main extends Component {

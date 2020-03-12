@@ -39,7 +39,7 @@ class CoursePage extends Component {
             <Course test progress={data.progress} date={data.date} key={i} test_id={data.id} />
         ))
 
-        let { name, language, code } = LessonModel.lesson
+        let { name, language } = LessonModel.lesson
         
         return (
             <>

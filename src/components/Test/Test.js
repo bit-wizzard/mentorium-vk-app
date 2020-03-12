@@ -5,7 +5,6 @@ import { withRouter } from 'react-router-dom'
 import Title from '../Title/Title'
 import Bottom from '../Bottom/Bottom'
 import Text from '../Text/Text'
-import QuestionCard from '../QuestionCard/QuestionCard'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheckCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import { observer } from 'mobx-react'
@@ -140,7 +139,7 @@ class Test extends Component {
 
         let isAnswerCorrect, answer
 
-        if(userAnswer == correctAnswer){
+        if(userAnswer === correctAnswer){
             isAnswerCorrect = true
         } else {
             isAnswerCorrect = false
@@ -205,8 +204,8 @@ class Test extends Component {
                                 <div
                                 key={option.id}
                                 className={`test-option
-                                ${userAnswer && option == correctAnswer ? 'correct' :
-                                userAnswer == option && !isAnswerCorrect && 'incorrect' }
+                                ${userAnswer && option === correctAnswer ? 'correct' :
+                                userAnswer === option && !isAnswerCorrect && 'incorrect' }
                                 `}
                                 onClick={() => {
                                     !userAnswer ? this.setAnswer(option) : answer = null
