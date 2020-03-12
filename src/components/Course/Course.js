@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { CourseStyle, TestStyle } from './CourseStyle'
+import { CourseStyle, TestStyle, CourseVerification } from './CourseStyle'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheckCircle, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { withRouter } from 'react-router-dom'
@@ -7,15 +7,22 @@ import Text from '../Text/Text'
 import Verification from '../Verification/Verification'
 import LessonModel from '../../models/lesson'
 
-class Course extends Component {    
+class Course extends Component {  
+    
+    state = {
+        onDelete: false
+    }
 
     nextPath(path) {
         if(path !== this.props.location.pathname)
             this.props.history.push(path)
     }
     
-    onClose(name) {
-        this.nextPath('/close/' + this.props.id)
+    onClose() {
+        this.setState({
+            onDelete: true
+        })
+        LessonModel.getLessonData(this.props.id)
     }
 
     onChangeDirection(id) {
@@ -33,7 +40,7 @@ class Course extends Component {
             <>
                 {!this.props.test ?
                 <>
-                <CourseStyle>
+                <CourseStyle onDelete={this.state.onDelete}>
                     <div className='card' onClick={() => this.onChangeDirection(this.props.id)}>
                     <div className='title'>
                         <Text size='default'>{this.props.title}</Text>
@@ -44,10 +51,12 @@ class Course extends Component {
                         <div>{this.props.progress}%</div>
                     </div>
                     </div>
-                    <div className='delete' onClick={() => this.onClose(this.props.title)}>
+                    <div className='delete' onClick={() => this.onClose()}>
                         <FontAwesomeIcon icon={faTimes} color='#999'/>
                     </div>
-                    <Verification lesson={LessonModel.lesson}></Verification>
+                    <CourseVerification onDelete={this.state.onDelete} onClick={() => this.setState({onDelete: false})}>
+                        <Verification lesson={LessonModel.lesson}></Verification>
+                    </CourseVerification>
                 </CourseStyle>
                 </>
                 :

@@ -52,7 +52,7 @@ ReactDOM.render(
             }}
             />
          
-            <Route
+            {/* <Route
             exact
             path="/close/:id"
             render={() => {
@@ -63,7 +63,7 @@ ReactDOM.render(
                         <Verification/>
                     </>
                 )
-            }}/>
+            }}/> */}
             <Route
             exact
             path="/course/:id"

@@ -13,4 +13,12 @@ export const MainStyle = styled.div
         opacity: 1;
         transition: 0.2s;
     }
+
+    .items-exit {
+        opacity: 1;
+    }
+    .items-exit-active {
+        opacity: 0;
+        transition: 0.2s;
+    }
 `

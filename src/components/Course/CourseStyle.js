@@ -29,11 +29,6 @@ export const CourseStyle = styled.div
         grid-gap: 0.5rem;
     }
 
-    .verification {
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
 `
 export const TestStyle = styled.div 
 `
@@ -52,4 +47,22 @@ export const TestStyle = styled.div
         align-items: center;
         grid-gap: 0.5rem;
     }
+`
+export const CourseVerification = styled.div
+`
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    ${props => props.onDelete ?
+        `
+            opacity: 1;
+        `
+    :
+        `
+            display: none;
+        `
+    }
+
 `

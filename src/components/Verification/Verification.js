@@ -12,7 +12,7 @@ class Verification extends Component {
     }
 
     // componentDidMount() {
-    //     LessonModel.getLessonData(this.props.match.params.id)
+        // LessonModel.getLessonData(this.props.match.params.id)
     // }
 
     render() {
