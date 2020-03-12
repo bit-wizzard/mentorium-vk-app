@@ -9,7 +9,6 @@ class Verification extends Component {
     
     onDelete(code) {
         LessonModel.deleteFromLessons(code)
-        this.props.history.goBack()
     }
 
     componentDidMount() {
@@ -25,7 +24,7 @@ class Verification extends Component {
                         <Text size='default'>Вы уверены, что хотите удалить предмет {`${name} (${language})`} ?</Text>
                         <div className='options'>
                             <VerificationYes onClick={() => this.onDelete(code)}>Yes</VerificationYes>
-                            <VerificationNo onClick={() => this.props.history.goBack()}>No</VerificationNo>
+                            <VerificationNo>No</VerificationNo>
                         </div>
                     </VerificationInner>
                 </VerificationStyle>

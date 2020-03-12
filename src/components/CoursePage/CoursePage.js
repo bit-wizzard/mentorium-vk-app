@@ -35,7 +35,6 @@ class CoursePage extends Component {
     
     componentDidUpdate() {
         LessonModel.getLessonData(this.props.match.params.id)
-        console.log(this.props.match.params.id)
     }
 
     render() {

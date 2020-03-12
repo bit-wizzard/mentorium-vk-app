@@ -14,7 +14,6 @@ class Course extends Component {
     }
     
     onClose(name) {
-        this.nextPath('/close/' + this.props.id)
         LessonModel.getLessonData(this.props.id)
     }
 
