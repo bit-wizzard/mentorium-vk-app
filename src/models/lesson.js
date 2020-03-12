@@ -38,6 +38,9 @@ class LessonModel {
 decorate(LessonModel, {
     lessons: observable,
     lesson: observable,
+    addLesson: action,
+    deleteFromLessons: action,
+    getLessonData: action,
     set: action
 })
 

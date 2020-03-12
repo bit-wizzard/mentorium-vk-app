@@ -7,6 +7,8 @@ import Course from '../Course/Course'
 import LessonModel from '../../models/lesson'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import disableBrowserBackButton from 'disable-browser-back-navigation';
+import {observer} from 'mobx-react'
+
 
 class Main extends Component {
 
@@ -64,4 +66,4 @@ class Main extends Component {
     }
 }
 
-export default Main
+export default observer(Main)
