@@ -24,7 +24,9 @@ class LessonModel {
     }
 
     getLessonData(code) {
-        this.lesson = this.lessons.find(o => o.code === code)
+        if(this.lesson.name === null){
+            this.lesson = this.lessons.find(o => o.code === code)
+        }
     }
 
     deleteFromLessons(code) {

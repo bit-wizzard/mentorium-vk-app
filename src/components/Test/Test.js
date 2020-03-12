@@ -44,7 +44,6 @@ class Test extends Component {
     
     componentDidMount() {
         this.loadTest();
-        console.log(LessonModel.lesson)
 
         const elHeight = this.divElement.clientHeight;
         this.setState({ elHeight })
@@ -151,7 +150,7 @@ class Test extends Component {
                     ref = { (divElement) => {this.divElement = divElement}}
                     >
                         <div className='test-header-fixed'>
-                    <Title title={LessonModel.lesson.name} />
+                    <Title title='{LessonModel.lesson.name}' />
                     <div className='test-content'>
                     <TestQuestion>
                         <div className={`test-content-inner active-slide-${currentQuestion}`}>

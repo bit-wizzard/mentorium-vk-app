@@ -35,13 +35,12 @@ class CoursePage extends Component {
     
     componentDidUpdate() {
         LessonModel.getLessonData(this.props.match.params.id)
-        console.log(this.props.match.params.id)
     }
 
     render() {
 
         let test = this.tests.map((data, i) => (
-            <Course test progress={data.progress} date={data.date} key={i} test_id={data.id} onClick={LessonModel.getLessonData(this.props.match.params.id)} />
+            <Course test progress={data.progress} date={data.date} key={i} test_id={data.id}z />
         ))
 
         let { name, language } = LessonModel.lesson
