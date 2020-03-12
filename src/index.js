@@ -51,19 +51,7 @@ ReactDOM.render(
                 )
             }}
             />
-            {/* <Route
-            exact
-            path="/course-selector"
-            render={() => {
-                return (
-                    <>
-                        <Main/>
-                        <CourseSelector activated/>
-                        <Bottom activated type='session'/>
-                    </>
-                )
-            }}
-            /> */}
+         
             <Route
             exact
             path="/close/:id"

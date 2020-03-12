@@ -24,15 +24,9 @@ class CourseSelector extends Component {
     }
 
     onAddLesson(lesson) {
-            LessonModel.addLesson(lesson)
-            this.onBack()
+        LessonModel.addLesson(lesson)
     }
-
-    onBack() {
-        this.props.history.goBack()        
-        this.props.history.goBack()        
-    }
-  
+ 
     
     render() {
         let courses = [

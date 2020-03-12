@@ -56,7 +56,6 @@ class Main extends Component {
                             ))
                          }
                         </TransitionGroup>
-                            {/* { course } */}
                         </div>
                 </MainStyle>
                 <Bottom type='main'/>
