@@ -30,7 +30,7 @@ export const MainStyle = styled.div
         border-radius: 0 0 25px 25px; 
     }
 
-        ${props => props.margin === 0 ?
+        ${props => (props.margin === 0 && !props.firstEnter)  &&
         `
         .notification {
             width: calc(${props.width}px - 2rem);
@@ -39,20 +39,21 @@ export const MainStyle = styled.div
         }
         @keyframes first {
             0% {margin-left: 0;}
-            50% {margin-left: -${props.width}px}
+            20% {margin-left: -${props.width}px;}
             100% {margin-left: 0}
         }
         `
-        :
+    }
+        ${props => (props.margin === 1 && !props.firstEnter)  &&
         `
         .notification {
             width: calc(${props.width}px - 2rem);
             animation-name: second;
-            animation-duration: 1s;
+            animation-duration: 0.8s;
         }
         @keyframes second {
             0% {margin-left: 0;}
-            50% {margin-left: -${props.width}px}
+            20% {margin-left: -${props.width}px;}
             100% {margin-left: 0}
         }
     `

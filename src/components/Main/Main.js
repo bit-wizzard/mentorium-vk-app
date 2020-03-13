@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, useRef, useLayoutEffect, useState } from 'react'
 import { MainStyle } from './MainStyle'
 import Title from '../Title/Title'
 import Notification from '../Notification/Notification'
@@ -12,35 +12,46 @@ import {observer} from 'mobx-react'
 
 class Main extends Component {
 
-    constructor(props) {
-        super(props)
+
+    constructor() {
+        super()
         this.state = {
+            width: null,
             notificationCounter: 0,
-            width: props.window,
+            firstEnter: true,
+            prevState: !this.firstEnter
         }
     }
 
-    componentWillMount() {
-        this.setState({width: window.innerWidth})   
-    }
-
+    // componentWillMount() {
+        // this.setState({width: window.innerWidth})
+    // }
+    
     courses = LessonModel.lessons
     
-    componentDidUpdate() {
+    
 
-        if(this.state.notificationCounter == 0 && this.courses.length > 0)
-            setTimeout(() => {
-                this.setState({notificationCounter: 1})
-            }, 200)
-
-        if(this.state.notificationCounter == 1 && this.courses.length == 0) 
-            setTimeout(() => {
-                this.setState({notificationCounter: 0})
-            }, 200)
+    componentWillReceiveProps() {
+        this.setState({width: window.innerWidth}) 
     } 
 
     componentDidMount() {
         disableBrowserBackButton();
+        // alert('hello')
+        // this.setState({width: window.innerWidth})
+
+    }
+    componentDidUpdate(prevState) {
+
+        if(this.state.notificationCounter == 0 && this.courses.length > 0)
+                this.setState({notificationCounter: 1})
+
+        if(this.state.notificationCounter == 1 && this.courses.length == 0) 
+                this.setState({notificationCounter: 0})
+
+        if(this.state.firstEnter) {
+            this.setState({firstEnter: false})
+        }
     }
     render() {
               
@@ -49,9 +60,12 @@ class Main extends Component {
             <>
                 <MainStyle 
                 width={this.state.width}
-                margin={this.state.notificationCounter}>
+                margin={this.state.notificationCounter}
+                firstEnter={this.state.firstEnter}>
                     <div className='main-header'>
+                        {this.state.width}
                     <Title main ></Title>
+                    componentDidMount
                             <div className='notification' >
                                 <Notification type={this.state.notificationCounter}/>
                             </div>
