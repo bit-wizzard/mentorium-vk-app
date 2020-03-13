@@ -6,6 +6,7 @@ import { withRouter } from 'react-router-dom'
 import Text from '../Text/Text'
 import Verification from '../Verification/Verification'
 import LessonModel from '../../models/lesson'
+import TestModel from '../../models/test'
 
 class Course extends Component {  
     
@@ -31,6 +32,7 @@ class Course extends Component {
     }
 
     onOpenTest(id) {
+        TestModel.setTest(id)
         this.nextPath('/test/' + id)
         //need to add modes for the test
     }
@@ -75,4 +77,4 @@ class Course extends Component {
     }
 }
 
-export default withRouter(Course)
+ export default withRouter(Course)

@@ -7,33 +7,40 @@ import Notification from '../Notification/Notification'
 import Course from '../Course/Course'
 import Bottom from '../Bottom/Bottom'
 
+import { TestData } from '../../data/TestData'
+import TestModel from '../../models/test'
+import { observer } from 'mobx-react'
+
+
 class CoursePage extends Component { 
     
     constructor() {
         super()
         this.state = {
-            notificationCounter: 2
+            notificationCounter: 2,
+            tests: TestModel.appliedTests
         }
     }
 
-    
-    tests = [
-        {
-            progress: 10,
-            date: '20.02.20',
-            id: 1
-        }
-    ]
     
     componentDidMount() {
-        if(this.tests.length > 0)
+        if(this.state.tests.length > 0)
             this.setState({notificationCounter: 3})
+        let tests = TestModel.getTests()
+        this.setState({ tests })
     }
 
+    
+    onAddNewTest() {
+        let test = { code: 0  }
+        test.code = LessonModel.lesson.code
+        test.questionsData = TestData
+        TestModel.addNewTest(test)
+    }
 
     render() {
 
-        let test = this.tests.map((data, i) => (
+        let test = this.state.tests.map((data, i) => (
             <Course test progress={data.progress} date={data.date} key={i} test_id={data.id}z />
         ))
 
@@ -52,7 +59,7 @@ class CoursePage extends Component {
                             {test}
                         </div>
                 </CoursePageStyle>
-                <div onClick={() => console.log('hello')}> 
+                <div onClick={() => this.onAddNewTest()}> 
                 <Bottom type='new-test'/>
                 </div>
             </>
@@ -60,4 +67,4 @@ class CoursePage extends Component {
     }
 }
 
-export default withRouter(CoursePage)
+export default withRouter(observer(CoursePage))
