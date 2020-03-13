@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, useRef, useLayoutEffect, useState } from 'react'
 import { MainStyle } from './MainStyle'
 import Title from '../Title/Title'
 import Notification from '../Notification/Notification'
@@ -12,33 +12,64 @@ import {observer} from 'mobx-react'
 
 class Main extends Component {
 
+
     constructor() {
         super()
         this.state = {
+            width: null,
             notificationCounter: 0,
+            firstEnter: true,
+            prevState: !this.firstEnter
         }
     }
 
-    courses = LessonModel.lessons
-    componentDidMount() {
-        if(this.courses.length > 0)
-        {
-            this.setState({notificationCounter: 1})
-        }
-
-            disableBrowserBackButton();
-
-    }    
+    // componentWillMount() {
+        // this.setState({width: window.innerWidth})
+    // }
     
+    courses = LessonModel.lessons
+    
+    
+
+    componentWillReceiveProps() {
+        this.setState({width: window.innerWidth}) 
+    } 
+
+    componentDidMount() {
+        disableBrowserBackButton();
+        // alert('hello')
+        // this.setState({width: window.innerWidth})
+
+    }
+    componentDidUpdate(prevState) {
+
+        if(this.state.notificationCounter == 0 && this.courses.length > 0)
+                this.setState({notificationCounter: 1})
+
+        if(this.state.notificationCounter == 1 && this.courses.length == 0) 
+                this.setState({notificationCounter: 0})
+
+        if(this.state.firstEnter) {
+            this.setState({firstEnter: false})
+        }
+    }
     render() {
-        
-        
+              
 
         return (
             <>
-                <MainStyle>
+                <MainStyle 
+                width={this.state.width}
+                margin={this.state.notificationCounter}
+                firstEnter={this.state.firstEnter}>
+                    <div className='main-header'>
+                        {this.state.width}
                     <Title main ></Title>
-                        <Notification type={this.state.notificationCounter}/>
+                    componentDidMount
+                            <div className='notification' >
+                                <Notification type={this.state.notificationCounter}/>
+                            </div>
+                            </div>
                         <div className='course-list'>
                             <TransitionGroup>
                         {

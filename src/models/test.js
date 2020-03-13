@@ -44,7 +44,11 @@ class TestModel {
 
     submitTest(test){
         this.submittedTest = test
+        let a = new Date().toISOString()
+        test.date = a.slice(8, 10) + '/' + a.slice(5, 7) + '/' + a.slice(0, 4)
+        
         let id = this.appliedTests.findIndex(o => o.id == test.id)
+
         this.appliedTests[id] = test
     }
 }

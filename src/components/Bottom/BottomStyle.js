@@ -25,14 +25,19 @@ export const BottomBackground = styled.div
 
 export const BottomStyle = styled.div `
 
-    border-radius: 15px;
-    background: #FFB600;
     display: grid;
-    margin: 0 1rem 1rem 1rem;
+    margin: 0 1rem;
+    background: #fff;
+    padding-bottom: 1rem;
+    
+    
     transition: 0.1s;
     
     .caption {
+        border-radius: 15px;
+
         display: grid;
+        background: #FFB600;
         padding: 1rem;
         justify-content: center;
         position: relative;
@@ -70,10 +75,6 @@ export const BottomStyle = styled.div `
                 z-index: -999;
             }
         `
-    }
-    :active {
-        background: rgb(235, 168, 0);
-        transition: 0.1s;
     }
 
 `

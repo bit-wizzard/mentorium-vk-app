@@ -32,7 +32,7 @@ export const CourseStyle = styled.div
 `
 export const TestStyle = styled.div 
 `
-    padding: 0.7rem 0.5rem;
+    padding: 0.5rem;
     background: #fbfbfb;
     display: grid;
     grid-template-columns: 1fr auto;
@@ -54,15 +54,17 @@ export const CourseVerification = styled.div
     height: 100vh;
     width: 100vw;
     top: 0;
-    left: 0;
     ${props => props.onDelete ?
         `
+            left: 0;
             opacity: 1;
+            transition: opacity 0.3s;
         `
     :
         `
-            display: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+            left: -1000px;
         `
     }
-
 `
