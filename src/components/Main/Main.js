@@ -12,33 +12,50 @@ import {observer} from 'mobx-react'
 
 class Main extends Component {
 
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             notificationCounter: 0,
+            width: props.window,
         }
     }
 
+    componentWillMount() {
+        this.setState({width: window.innerWidth})   
+    }
+
     courses = LessonModel.lessons
-    componentDidMount() {
-        if(this.courses.length > 0)
-        {
-            this.setState({notificationCounter: 1})
-        }
-
-            disableBrowserBackButton();
-
-    }    
     
+    componentDidUpdate() {
+
+        if(this.state.notificationCounter == 0 && this.courses.length > 0)
+            setTimeout(() => {
+                this.setState({notificationCounter: 1})
+            }, 200)
+
+        if(this.state.notificationCounter == 1 && this.courses.length == 0) 
+            setTimeout(() => {
+                this.setState({notificationCounter: 0})
+            }, 200)
+    } 
+
+    componentDidMount() {
+        disableBrowserBackButton();
+    }
     render() {
-        
-        
+              
 
         return (
             <>
-                <MainStyle>
+                <MainStyle 
+                width={this.state.width}
+                margin={this.state.notificationCounter}>
+                    <div className='main-header'>
                     <Title main ></Title>
-                        <Notification type={this.state.notificationCounter}/>
+                            <div className='notification' >
+                                <Notification type={this.state.notificationCounter}/>
+                            </div>
+                            </div>
                         <div className='course-list'>
                             <TransitionGroup>
                         {

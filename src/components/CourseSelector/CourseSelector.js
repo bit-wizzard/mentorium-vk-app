@@ -31,18 +31,18 @@ class CourseSelector extends Component {
     render() {
         let courses = [
             {
-                name: "Kazakh history",
-                language: "KAZ",
+                name: "Казахстан тарихы",
+                language: "Каз",
                 code: "KHK"
             },
             {
-                name: "Kazakh history",
-                language: "RUS",
+                name: "История Казахстана",
+                language: "Рус",
                 code: "KZR"
             },
             {
-                name: "Math history",
-                language: "RUS",
+                name: "Математикалк сауаттылык",
+                language: "Каз",
                 code: "MHR"
             }
         ]

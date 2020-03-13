@@ -6,6 +6,7 @@ import { withRouter } from 'react-router-dom'
 import Text from '../Text/Text'
 import Verification from '../Verification/Verification'
 import LessonModel from '../../models/lesson'
+import { CSSTransition } from 'react-transition-group'
 
 class Course extends Component {  
     

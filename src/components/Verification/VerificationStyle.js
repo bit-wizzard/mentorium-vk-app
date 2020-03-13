@@ -10,7 +10,7 @@ export const VerificationStyle = styled.div
     display: grid;
     align-items: center;
     justify-content: center;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.2);
 `
 export const VerificationInner = styled.div
 `

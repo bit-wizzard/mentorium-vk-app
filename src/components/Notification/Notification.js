@@ -16,7 +16,7 @@ class Notification extends Component {
         return (
             <>
                 <NotificationStyle>
-                        <Text size='small' type='secondary'>{noti_text}</Text>
+                        <Text size='small'>{noti_text}</Text>
                 </NotificationStyle>
             </>
 
