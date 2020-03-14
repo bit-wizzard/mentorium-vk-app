@@ -17,7 +17,7 @@ export const VerificationInner = styled.div
     background: #fff;
     padding: 1rem;
     border-radius: 10px;
-    margin: 0 2rem;
+    margin: 0 1rem;
 
     .options {
         display: grid;

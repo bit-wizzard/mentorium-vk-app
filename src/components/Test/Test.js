@@ -145,6 +145,8 @@ class Test extends Component {
                 progress: (score*100)/questions.length
             }
             TestModel.submitTest(test)
+
+            this.props.history.push(`/submit/${id}`)
         }
 
         if(!userAnswer && blankAnswers.length > 0){

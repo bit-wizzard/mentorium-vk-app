@@ -82,7 +82,7 @@ class CoursePage extends Component {
                             {
                                 this.state.tests.map((data, i) => (
                                     <CSSTransition
-                                    timeout={200}
+                                    timeout={500}
                                     classNames='items'
                                     key={i}
                                 >

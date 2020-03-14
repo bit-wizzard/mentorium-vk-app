@@ -3,9 +3,6 @@ import styled from 'styled-components'
 export const CoursePageStyle = styled.div
 `   
     padding: 1rem;
-    .test-list {
-        margin-top: 1rem;
-    }
     .main-header {
         background: #f0f0f0;
         margin: -1rem -1rem 0 -1rem;     
@@ -13,14 +10,21 @@ export const CoursePageStyle = styled.div
         display: grid;
         grid-template-rows: auto 1fr;
         height: 20vh;  
-        border-radius: 0 0 25px 25px; 
+        border-radius: 0; 
+        position: fixed;
+    }
+    .test-list {
+        margin-top: calc(20vh + 2rem);
+        padding-bottom: 4rem;
     }
     .items-enter {
         opacity: 0;
+        margin-top: 200px;
     }
     .items-enter-active {
         opacity: 1;
-        transition: 0.2s;
+        transition: 0.5s;
+        margin-top: 0;
     }
 
     .items-exit {

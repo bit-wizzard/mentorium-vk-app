@@ -20,7 +20,7 @@ class Bottom extends Component {
         return (
             <>
             {this.props.type === "main" &&
-            <BottomBack>
+            <BottomBack bottomOpened={this.state.bottomOpened}>
                 <BottomBackground onClick={() => this.setState({bottomOpened: false})} bottomOpened={this.state.bottomOpened}></BottomBackground>
                 <BottomStyle 
                 bottomOpened={this.state.bottomOpened}>

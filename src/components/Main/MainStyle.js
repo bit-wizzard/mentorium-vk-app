@@ -8,10 +8,12 @@ export const MainStyle = styled.div
     }
     .items-enter {
         opacity: 0;
+        margin-top: 200px;
     }
     .items-enter-active {
         opacity: 1;
         transition: 0.5s;
+        margin-top: 0;
     }
 
     .items-exit {
@@ -29,7 +31,7 @@ export const MainStyle = styled.div
         display: grid;
         grid-template-rows: auto 1fr;
         height: 20vh;  
-        border-radius: 0 0 25px 25px; 
+        border-radius: 0; 
     }
     `
 

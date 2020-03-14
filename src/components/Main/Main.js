@@ -36,6 +36,9 @@ class Main extends Component {
     componentDidMount() {
         disableBrowserBackButton();
     }
+    nextPage() {
+        this.setState({next: true})
+    }
 
     componentDidUpdate() {
 
@@ -57,9 +60,11 @@ class Main extends Component {
         return (
             <>
                 <MainStyle 
+                next={this.state.next}
                 width={this.state.width}
                 margin={this.state.notificationCounter}
                 firstEnter={this.state.firstEnter}>
+                    <div className='toggle'></div>
                     <div className='main-header'>
                     <Title main ></Title>
                             <div className='notification' >
