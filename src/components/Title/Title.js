@@ -14,16 +14,19 @@ class Title extends Component {
         return (
             <>
             { this.props.main ?
-            <>
-            <Text size='big' weight='bold'>Ваши предметы</Text>
-            </>
-            :
-            <>
             <TitleStyle>
-                <FontAwesomeIcon icon={faChevronLeft} onClick={() => this.props.history.goBack()} />
+                <div className='chevron'>
+                    <FontAwesomeIcon icon={faChevronLeft}/>
+                </div>
+                <Text size='big' weight='bold'>Мои предметы</Text>
+            </TitleStyle>
+            :
+            <TitleStyle>
+                <div>
+                    <FontAwesomeIcon icon={faChevronLeft} onClick={() => this.props.history.goBack()} />
+                </div>
                 <Text size='big' weight='bold'>{this.props.title}</Text>
             </TitleStyle>
-            </>
             }
             </>
         )

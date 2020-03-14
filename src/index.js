@@ -6,6 +6,7 @@ import { BrowserRouter, Route } from 'react-router-dom'
 import bridge from '@vkontakte/vk-bridge';
 import App from './App';
 import './index.css'
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
 
 
 import Main from './components/Main/Main'

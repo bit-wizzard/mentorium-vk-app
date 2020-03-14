@@ -1,4 +1,4 @@
-import React, { Component, useRef, useLayoutEffect, useState } from 'react'
+import React, { Component } from 'react'
 import { MainStyle } from './MainStyle'
 import Title from '../Title/Title'
 import Notification from '../Notification/Notification'
@@ -19,29 +19,25 @@ class Main extends Component {
             width: null,
             notificationCounter: 0,
             firstEnter: true,
-            prevState: !this.firstEnter
         }
     }
-
-    // componentWillMount() {
-        // this.setState({width: window.innerWidth})
-    // }
     
     courses = LessonModel.lessons
     
     
 
-    componentWillReceiveProps() {
-        this.setState({width: window.innerWidth}) 
-    } 
+    componentWillMount() {
+        
+        if(this.courses.length > 0)
+            this.setState({notificationCounter: 1})
+    }
+
 
     componentDidMount() {
         disableBrowserBackButton();
-        // alert('hello')
-        // this.setState({width: window.innerWidth})
-
     }
-    componentDidUpdate(prevState) {
+
+    componentDidUpdate() {
 
         if(this.state.notificationCounter == 0 && this.courses.length > 0)
                 this.setState({notificationCounter: 1})
@@ -51,7 +47,9 @@ class Main extends Component {
 
         if(this.state.firstEnter) {
             this.setState({firstEnter: false})
+            this.setState({width: window.innerWidth})
         }
+
     }
     render() {
               
@@ -63,9 +61,7 @@ class Main extends Component {
                 margin={this.state.notificationCounter}
                 firstEnter={this.state.firstEnter}>
                     <div className='main-header'>
-                        {this.state.width}
                     <Title main ></Title>
-                    componentDidMount
                             <div className='notification' >
                                 <Notification type={this.state.notificationCounter}/>
                             </div>
@@ -75,7 +71,7 @@ class Main extends Component {
                         {
                             this.courses.map((data, i) => (
                                 <CSSTransition
-                                timeout={200}
+                                timeout={500}
                                 classNames='items'
                                 key={i}
                                 >

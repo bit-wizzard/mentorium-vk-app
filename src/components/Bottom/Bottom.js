@@ -94,7 +94,9 @@ class Bottom extends Component {
             }
             {this.props.type === 'submit' &&
                 <>
-                <BottomQuestion>
+                <BottomQuestion 
+                // onClick={() => this.props.history.goBack()}
+                >
                 <BottomStyle>
                         <div className='caption'>
                             <div>

@@ -47,7 +47,7 @@ class Course extends Component {
                     <div className='card' onClick={() => this.onChangeDirection(this.props.id)}>
                     <div className='title'>
                         <Text size='default'>{this.props.title}</Text>
-                        <Text size='default'>({this.props.language})</Text>
+                        <Text size='default'>{this.props.language}</Text>
                     </div>
                     <div className='progress'>
                         <FontAwesomeIcon icon={faCheckCircle} color='#31B43D' size='lg'/>

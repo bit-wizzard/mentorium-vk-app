@@ -32,27 +32,27 @@ class CourseSelector extends Component {
         let courses = [
             {
                 name: "Казахстан тарихы",
-                language: "Каз",
+                language: "🇰🇿",
                 code: "KHK"
             },
             {
                 name: "История Казахстана",
-                language: "Рус",
+                language: "🇷🇺",
                 code: "KZR"
             },
             {
                 name: "Математикалк сауаттылык",
-                language: "Каз",
+                language: "🇰🇿",
                 code: "MHR"
             }
         ]
-
+        
         let course = courses.map((data, i) => (
             <div className='selector-item'
             onClick={() => this.onAddLesson(data)}
             key={i}>
                 <Text size='default'>{data.name}</Text>
-                <Text size='default'>({data.language})</Text>
+                <Text size='default'>{data.language}</Text>
             </div>
         ))
         
