@@ -4,7 +4,7 @@ BottomBack } from './BottomStyle'
 import Text from '../Text/Text'
 import CourseSelector from '../CourseSelector/CourseSelector'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlus, faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { faPlus, faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import {  withRouter } from 'react-router-dom'
 
 class Bottom extends Component {
@@ -14,6 +14,10 @@ class Bottom extends Component {
         this.state = {
             bottomOpened: false
         }
+    }
+    goToTests() {
+        this.props.history.goBack()
+        this.props.history.goBack()
     }
 
     render() {
@@ -108,19 +112,22 @@ class Bottom extends Component {
                 </BottomQuestion>
                 </>
             }
-            {/* 
             {this.props.type === 'end-test' &&
                 <>
+                <BottomQuestion 
+                onClick={() => this.goToTests()}
+                >
                 <BottomStyle>
-                    <BottomInner>
                         <div className='caption'>
+                            <div>
                             <FontAwesomeIcon icon={faChevronLeft} />
-                            <Text size='default'>Go back to MyTests</Text>
+                            <Text size='default'>Венуться к моим тестам</Text>
+                            </div>
                         </div>
-                    </BottomInner>
                 </BottomStyle>
+                </BottomQuestion>
                 </>
-            }  */}
+            }
             </>
         )
     }

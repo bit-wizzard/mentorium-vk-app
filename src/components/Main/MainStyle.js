@@ -25,13 +25,13 @@ export const MainStyle = styled.div
     }
 
     .main-header {
-        background: #f0f0f0;
-        margin: -1rem -1rem 0 -1rem;     
-        padding: 1rem;
-        display: grid;
-        grid-template-rows: auto 1fr;
-        height: 20vh;  
-        border-radius: 0; 
+            background: #f0f0f0;
+            margin: -1rem -1rem 0 -1rem;     
+            padding: 1rem;
+            display: grid;
+            grid-template-rows: auto 1fr;
+            height: 20vh;  
+            border-radius: 0; 
     }
     `
 

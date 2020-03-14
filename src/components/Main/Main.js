@@ -66,7 +66,7 @@ class Main extends Component {
                 firstEnter={this.state.firstEnter}>
                     <div className='toggle'></div>
                     <div className='main-header'>
-                    <Title main ></Title>
+                    <Title main title='Мои предметы' ></Title>
                             <div className='notification' >
                                 <Notification type={this.state.notificationCounter}/>
                             </div>

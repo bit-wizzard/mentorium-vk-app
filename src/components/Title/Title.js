@@ -18,7 +18,7 @@ class Title extends Component {
                 <div className='chevron'>
                     <FontAwesomeIcon icon={faChevronLeft}/>
                 </div>
-                <Text size='big' weight='bold'>Мои предметы</Text>
+                <Text size='big' weight='bold'>{this.props.title}</Text>
             </TitleStyle>
             :
             <TitleStyle>
@@ -28,6 +28,7 @@ class Title extends Component {
                 <Text size='big' weight='bold'>{this.props.title}</Text>
             </TitleStyle>
             }
+            
             </>
         )
     }
