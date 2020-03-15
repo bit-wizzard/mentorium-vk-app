@@ -47,7 +47,8 @@ class Test extends Component {
                 questions: TestModel.test.questionsData.map(data => data.question),
                 options: TestModel.test.questionsData[currentQuestion].options,
                 answers: TestModel.test.questionsData[currentQuestion].answer,
-                correctAnswer: TestModel.test.questionsData[currentQuestion].answer
+                correctAnswer: TestModel.test.questionsData[currentQuestion].answer,
+                blankAnswers: [0, 1,2,3]
             }
         })
     }
@@ -87,7 +88,6 @@ class Test extends Component {
                 this.setState({
                     currentQuestion: currentQuestion + 1
                 })
-
         }
 
         
@@ -128,7 +128,14 @@ class Test extends Component {
 
     finishHandler = () => {
 
-        const {userAnswer, correctAnswer, score, blankAnswers, currentQuestion} = this.state
+        let {userAnswer, correctAnswer, score, blankAnswers, currentQuestion} = this.state
+
+        if(userAnswer && blankAnswers.indexOf(currentQuestion) !== -1){
+            blankAnswers = blankAnswers.filter(i => i !== currentQuestion)
+            this.setState({
+                blankAnswers
+            })
+        }
 
         if(userAnswer && blankAnswers.length > 0){
             this.setState({
