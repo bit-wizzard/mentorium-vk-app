@@ -13,7 +13,7 @@ class TestModel {
         correctAnswers: [],
         wrongAnswers: []
     }
-
+    
     submittedTest = {}
 
 
@@ -27,10 +27,9 @@ class TestModel {
         
         let a = new Date().toISOString()
         test.date = a.slice(8, 10) + '/' + a.slice(5, 7) + '/' + a.slice(0, 4)
-        
+        test.isSubmitted = false
         test.progress = 0
 
-        
         this.appliedTests.push(test)
     }
 
@@ -46,7 +45,7 @@ class TestModel {
         this.submittedTest = test
         let a = new Date().toISOString()
         test.date = a.slice(8, 10) + '/' + a.slice(5, 7) + '/' + a.slice(0, 4)
-        
+        test.isSubmitted = true
         let id = this.appliedTests.findIndex(o => o.id == test.id)
 
         this.appliedTests[id] = test

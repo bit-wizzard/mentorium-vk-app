@@ -18,6 +18,7 @@ class LessonModel {
 
     addLesson(lesson){
         let { code } = lesson
+        
         if(this.lessons.findIndex(o => o.code === code) === -1) {
             this.lessons.push(lesson)
         }

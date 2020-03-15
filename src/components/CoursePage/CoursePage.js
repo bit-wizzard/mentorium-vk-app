@@ -20,7 +20,7 @@ class CoursePage extends Component {
         super()
         this.state = {
             notiCounter: 2,
-            tests: TestModel.appliedTests,
+            tests: [],
             width: null,
             firstTime: true,
         }
@@ -51,10 +51,12 @@ class CoursePage extends Component {
 
     
     onAddNewTest() {
-        let test = { code: 0  }
-        test.code = LessonModel.lesson.code
-        test.questionsData = TestData
-        TestModel.addNewTest(test)
+        if(!this.state.tests.find(o => o.isSubmitted == false)){
+            let test = { code: 0  }
+            test.code = LessonModel.lesson.code
+            test.questionsData = TestData
+            TestModel.addNewTest(test)
+        }
     }
 
     render() {

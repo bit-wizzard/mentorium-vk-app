@@ -144,7 +144,8 @@ class Test extends Component {
         }
         
         if(userAnswer && blankAnswers.length === 0){
-            let { id, questionsData, correctAnswers, wrongAnswers, score, questions } = this.state
+            let { id, correctAnswers, wrongAnswers, score, questions } = this.state
+            let questionsData = TestModel.test.questionsData
             if(correctAnswer === userAnswer){
                 score += 1
             }
