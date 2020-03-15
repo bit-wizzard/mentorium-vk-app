@@ -215,8 +215,7 @@ class Test extends Component {
         }
         
         return (
-            <>
-                <TestStyle>
+            <TestStyle>
                     <div className='test-header'
                     ref = { (divElement) => {this.divElement = divElement}}
                     >
@@ -296,7 +295,6 @@ class Test extends Component {
                     </div>
                     }
                 </TestStyle>
-            </>
         )
     }
 }
