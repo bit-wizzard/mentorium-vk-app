@@ -81,10 +81,15 @@ class Test extends Component {
                 currentQuestion: nextQ 
             })
         }else{
-            this.setState({
-                currentQuestion: currentQuestion + 1
-            })
+            if(userAnswer)
+                this.finishHandler()
+            else
+                this.setState({
+                    currentQuestion: currentQuestion + 1
+                })
+
         }
+
         
         if(userAnswer === correctAnswer)
             this.setState({
