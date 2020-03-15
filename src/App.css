@@ -1,0 +1,33 @@
+.pageSlider-enter .page{
+    z-index: 100;
+}
+.pageSlider-enter-active .page{
+    z-index: 1;
+}
+.pageSlider-exit .page {
+    left: 100vw;
+    transition: 2.5s;
+}
+.pageSlider-enter.left .page{
+    left: 100vw;
+    transition: 2.5s;
+}
+.pageSlider-enter.rigth .page{
+    left: -100vw;
+    transition: 2.5s;
+}
+.pageSlider-enter.pageSlider-enter-active .page{
+    left: 0;
+    transition: 2.5s;
+}
+.pageSlider-exit.left .page{
+    left: 0;
+    transition: 2.5s;
+
+}
+.pageSlider-exit.rigth .page{
+    left: 0;
+    transition: 2.5s;
+
+}
+

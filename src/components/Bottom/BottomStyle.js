@@ -8,6 +8,7 @@ export const BottomBack = styled.div
     left: 0;
     width: 100vw;
     height: 100vh;
+    overflow: hidden;
     display: grid;
     grid-template-rows: 1fr auto;
     ${props => props.bottomOpened ? `z-index: 1`:`z-index: -500`}
@@ -16,11 +17,7 @@ export const BottomBack = styled.div
 export const BottomBackground = styled.div
 `
     display: grid;
-    ${props => !props.bottomOpened && 
-        `
-        height: 10px;
-        `
-    }
+
 `
 
 export const BottomStyle = styled.div `
@@ -71,7 +68,6 @@ export const BottomStyle = styled.div `
             .course-selector-inner {
                 opacity: 0;
                 bottom: -10rem;
-                display: none;
                 transition: 0.2s;
                 z-index: -999;
             }

@@ -33,6 +33,9 @@ export const CoursePageStyle = styled.div
         opacity: 0;
         transition: 0.2s;
     }
+    .notification {
+        margin-right: 2rem;
+    }
     `
 
     //     ${props => (props.margin === 2 && !props.firstEnter)  &&
