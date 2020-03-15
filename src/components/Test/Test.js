@@ -150,6 +150,8 @@ class Test extends Component {
                 progress: (score*100)/questions.length
             }
             TestModel.submitTest(test)
+
+            this.props.history.push(`/submit/${id}`)
         }
 
         if(!userAnswer && blankAnswers.length > 0){
@@ -211,7 +213,7 @@ class Test extends Component {
                     ref = { (divElement) => {this.divElement = divElement}}
                     >
                         <div className='test-header-fixed'>
-                    <Title title={`${LessonModel.lesson.name} (${LessonModel.lesson.language})`} />
+                    <Title title={`${LessonModel.lesson.name} ${LessonModel.lesson.language}`} />
                     <div className='test-content'>
                     <TestQuestion>
                         <div className={`test-content-inner active-slide-${currentQuestion}`}>

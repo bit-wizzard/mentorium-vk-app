@@ -14,12 +14,14 @@ export const CourseStyle = styled.div
     .card {
         display: grid;
         grid-template-columns: 1fr auto;
+        grid-gap: 1rem;
     }
     
     .title {
         display: grid;
-        grid-template-columns: auto 1fr;
+        grid-template-columns: 1fr auto;
         grid-gap: 10px;
+        align-items: center;
     }
 
     .progress {

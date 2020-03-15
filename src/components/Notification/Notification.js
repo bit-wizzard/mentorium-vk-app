@@ -20,7 +20,7 @@ class Notification extends Component {
 
     componentWillUpdate() {
         if(this.props.type == 0 || this.props.type == 1)
-            setTimeout(() => {this.setState({noti_text: this.notifications[this.props.type]})}, 300)
+            setTimeout(() => {this.setState({noti_text: this.notifications[this.props.type]})}, 0)
         else 
             setTimeout(() => {this.setState({noti_text: this.notifications[this.props.type]})}, 0)
 

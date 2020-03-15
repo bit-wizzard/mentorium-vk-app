@@ -9,7 +9,7 @@ export const TestStyle = styled.div
         display: grid;
     }
     .test-header {
-        background: #FFB600;
+        background: #f0f0f0;
         padding: 1rem;
         display: grid;
         grid-template-rows: auto 1fr;

@@ -6,13 +6,11 @@ import { BrowserRouter, Route } from 'react-router-dom'
 import bridge from '@vkontakte/vk-bridge';
 import App from './App';
 import './index.css'
-
-
 import Main from './components/Main/Main'
 import Bottom from './components/Bottom/Bottom'
-import Verification from './components/Verification/Verification'
 import CoursePage from './components/CoursePage/CoursePage';
 import Test from './components/Test/Test'
+import Submit from './components/Submit/Submit'
 
 // Init VK  Mini App
 bridge.send('VKWebAppInit');
@@ -23,67 +21,65 @@ let url = "mentorium-vk-app"
 // расскомментируйте строку с registerServiceWorker();
 // Но не забывайте, что на данный момент у технологии есть достаточно подводных камней
 // Подробнее про сервис воркеры можно почитать тут — https://vk.cc/8MHpmT
-    // serviceWorker.registre();
-    
+// serviceWorker.registre();
+
 ReactDOM.render(
     <BrowserRouter basename={url}>
         <App>
             <Route
-            exact
-            path="/"
-            render={() => {
-                return (
-                    <>
-                        <Main/> 
-                    </>
-                )
-            }}
+                exact
+                path="/"
+                render={() => {
+                    return (
+                        <>
+                            <Main />
+                        </>
+                    )
+                }}
             />
             <Route
-            exact
-            path="/new"
-            render={() => {
-                return (
-                    <>
-                        <Main/>
-                        <Bottom type='session'/>
-                    </>
-                )
-            }}
+                exact
+                path="/new"
+                render={() => {
+                    return (
+                        <>
+                            <Main />
+                            <Bottom type='session' />
+                        </>
+                    )
+                }}
             />
-         
-            {/* <Route
-            exact
-            path="/close/:id"
-            render={() => {
-                return (
-                    <>
-                        <Main/>
-                        <Bottom type='session'/>
-                        <Verification/>
-                    </>
-                )
-            }}/> */}
             <Route
-            exact
-            path="/course/:id"
-            render={() => {
-                return (
-                    <>
-                        <CoursePage/>
-                    </>
-                )
-            }}/>
+                exact
+                path="/course/:id"
+                render={() => {
+                    return (
+                        <>
+                            <CoursePage />
+                        </>
+                    )
+                }} />
             <Route
-            exact
-            path="/test/:test_id"
-            render={() => {
-                return (
-                    <>
-                        <Test/>
-                    </>
-                )
-            }}
+                exact
+                path="/test/:test_id"
+                render={() => {
+                    return (
+                        <>
+                            <Test />
+                        </>
+                    )
+                }}
+            />
+            <Route
+                exact
+                path="/submit/:test_id"
+                render={() => {
+                    return (
+                        <>
+                            <Submit />
+                        </>
+                    )
+                }}
             />
         </App>
     </BrowserRouter>,

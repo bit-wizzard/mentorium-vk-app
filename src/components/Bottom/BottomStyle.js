@@ -3,14 +3,14 @@ import styled from 'styled-components'
 
 export const BottomBack = styled.div 
 `
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
     display: grid;
     grid-template-rows: 1fr auto;
-    z-index: -500;
+    ${props => props.bottomOpened ? `z-index: 1`:`z-index: -500`}
 `
 
 export const BottomBackground = styled.div

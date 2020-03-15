@@ -6,6 +6,8 @@ import LessonModel from '../../models/lesson'
 import Notification from '../Notification/Notification'
 import Course from '../Course/Course'
 import Bottom from '../Bottom/Bottom'
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
+
 
 import { TestData } from '../../data/TestData'
 import TestModel from '../../models/test'
@@ -17,15 +19,32 @@ class CoursePage extends Component {
     constructor() {
         super()
         this.state = {
-            notificationCounter: 2,
-            tests: TestModel.appliedTests
+            notiCounter: 2,
+            tests: TestModel.appliedTests,
+            width: null,
+            firstTime: true,
         }
     }
 
-    
-    componentDidMount() {
+    componentWillMount() {
+        
         if(this.state.tests.length > 0)
-            this.setState({notificationCounter: 3})
+            this.setState({notiCounter: 3})
+    }
+
+    componentDidUpdate() {
+        if(this.state.notiCounter == 2 && this.state.tests.length > 0)
+                this.setState({notiCounter: 3})
+
+        if(this.state.notiCounter == 3 && this.state.tests.length == 0) 
+                this.setState({notiCounter: 2})
+
+        if(this.state.firstTime) {
+            this.setState({firstTime: false})
+            this.setState({width: window.innerWidth})
+        }
+    }
+    componentDidMount() {
         let tests = TestModel.getTests()
         this.setState({ tests })
     }
@@ -40,23 +59,38 @@ class CoursePage extends Component {
 
     render() {
 
-        let test = this.state.tests.map((data, i) => (
-            <Course test progress={data.progress} date={data.date} key={i} test_id={data.id}z />
-        ))
+        // let test = this.state.tests.map((data, i) => (
+            // <Course test progress={data.progress} date={data.date} key={i} test_id={data.id}z />
+        // ))
 
         let { name, language } = LessonModel.lesson
         
         return (
             <>
-                <CoursePageStyle>  
-                    {name ?
-                        <Title title={`${name} (${language})`}/>
-                        :
-                        <> hello </>
-                    }
-                    <Notification type={this.state.notificationCounter} />
+                <CoursePageStyle
+                width={this.state.width}
+                margin={this.state.notiCounter}>
+                    <div className='main-header'>
+                        <Title title={`${name} ${language}`}/>
+                        <div className='notification'>
+                    <Notification type={this.state.notiCounter} />
+                    </div>
+                    </div>
                         <div className='test-list'>
-                            {test}
+                            <TransitionGroup>
+
+                            {
+                                this.state.tests.map((data, i) => (
+                                    <CSSTransition
+                                    timeout={500}
+                                    classNames='items'
+                                    key={i}
+                                >
+                                        <Course test progress={data.progress} date={data.date} key={i} test_id={data.id}z />
+                                    </CSSTransition>
+                                ))
+                            }
+                            </TransitionGroup>
                         </div>
                 </CoursePageStyle>
                 <div onClick={() => this.onAddNewTest()}> 

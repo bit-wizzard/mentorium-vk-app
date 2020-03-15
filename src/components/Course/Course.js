@@ -7,7 +7,6 @@ import Text from '../Text/Text'
 import Verification from '../Verification/Verification'
 import LessonModel from '../../models/lesson'
 import TestModel from '../../models/test'
-import { CSSTransition } from 'react-transition-group'
 
 class Course extends Component {  
     
@@ -15,11 +14,11 @@ class Course extends Component {
         onDelete: false
     }
 
-    nextPath(path) {
-        if(path !== this.props.location.pathname)
-            this.props.history.push(path)
-    }
-    
+        nextPath(path) {
+            if(path !== this.props.location.pathname)
+                this.props.history.push(path)
+        }
+        
     onClose() {
         this.setState({
             onDelete: true
@@ -47,7 +46,7 @@ class Course extends Component {
                     <div className='card' onClick={() => this.onChangeDirection(this.props.id)}>
                     <div className='title'>
                         <Text size='default'>{this.props.title}</Text>
-                        <Text size='default'>({this.props.language})</Text>
+                        <Text size='default'>{this.props.language}</Text>
                     </div>
                     <div className='progress'>
                         <FontAwesomeIcon icon={faCheckCircle} color='#31B43D' size='lg'/>
