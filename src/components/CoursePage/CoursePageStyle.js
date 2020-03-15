@@ -8,6 +8,7 @@ export const CoursePageStyle = styled.div
         margin: -1rem -1rem 0 -1rem;     
         padding: 1rem;
         display: grid;
+        width: 100vw;
         grid-template-rows: auto 1fr;
         height: 20vh;  
         border-radius: 0; 
@@ -19,12 +20,10 @@ export const CoursePageStyle = styled.div
     }
     .items-enter {
         opacity: 0;
-        margin-top: 200px;
     }
     .items-enter-active {
         opacity: 1;
         transition: 0.5s;
-        margin-top: 0;
     }
 
     .items-exit {

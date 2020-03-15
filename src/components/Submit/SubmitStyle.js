@@ -12,4 +12,8 @@ export const SubmitStyle = styled.div
         position: fixed;
         width: 100%;
     }
-`
+    .notification {
+        margin-right: 1rem;
+        background: red;
+    }
+    `

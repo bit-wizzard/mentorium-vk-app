@@ -71,6 +71,7 @@ export const BottomStyle = styled.div `
             .course-selector-inner {
                 opacity: 0;
                 bottom: -10rem;
+                display: none;
                 transition: 0.2s;
                 z-index: -999;
             }

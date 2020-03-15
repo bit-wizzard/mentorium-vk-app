@@ -28,7 +28,7 @@ class Submit extends Component {
                 <SubmitStyle>
                     <div className='test-header'>
                         <Title title='lessontitle and flag' main/>
-                        <div>
+                        <div className='notification'>
                         <Text size='small'>Congrats, you've done test. Your score is 70%</Text>
                         <Text size='small'>Try to remember incorrect answers</Text>
                         </div>

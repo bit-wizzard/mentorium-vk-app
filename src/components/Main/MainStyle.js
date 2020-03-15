@@ -8,12 +8,10 @@ export const MainStyle = styled.div
     }
     .items-enter {
         opacity: 0;
-        margin-top: 200px;
     }
     .items-enter-active {
         opacity: 1;
         transition: 0.5s;
-        margin-top: 0;
     }
 
     .items-exit {
