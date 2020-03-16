@@ -30,8 +30,39 @@ export const CourseStyle = styled.div
         align-items: center;
         grid-gap: 0.5rem;
     }
+    `
+    // .next-page-wrapper {
+        // position: absolute;
+        // background: #fff;
+        // top: 0;
+        // right: 0;
+        // z-index: 100;
+        // height: 100vh;
+    // }
+    
+    // .next-page {
+        // background: lightblue;
+    // }
+    
+    // ${props => props.onEnter ? 
+    //     `     
+    //         .next-page {
+    //             animation-name: next-page;
+    //             animation-duration: 1s;
+    //         }
+    //         @keyframes next-page {
+    //             0% {width: 0; height: 100vh}
+    //             30% {width: 100vw; height: 100vh}
+    //             100% {width: 100vw; height: calc(20vh + 2rem);}
+    //           }
+    //     `
+    //     :
+    //     `
+    //         .next-page {
+    //         }
+    //     `}
 
-`
+
 export const TestStyle = styled.div 
 `
     padding: 0.5rem;

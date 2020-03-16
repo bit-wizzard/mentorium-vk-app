@@ -1,8 +1,11 @@
 .pageSlider-enter .page{
     z-index: 100;
+    opacity: 0;
 }
 .pageSlider-enter-active .page{
     z-index: 1;
+    opacity: 1;
+    transition: 2.5s;
 }
 .pageSlider-exit .page {
     left: 100vw;

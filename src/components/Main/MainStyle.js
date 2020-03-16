@@ -31,6 +31,7 @@ export const MainStyle = styled.div
             height: 20vh;  
             border-radius: 0; 
     }
+    
     `
 
     //     ${props => (props.margin === 0 && !props.firstEnter)  &&

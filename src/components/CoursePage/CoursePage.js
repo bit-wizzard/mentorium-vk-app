@@ -23,6 +23,7 @@ class CoursePage extends Component {
             tests: [],
             width: null,
             firstTime: true,
+            opened: false
         }
     }
 
@@ -47,6 +48,9 @@ class CoursePage extends Component {
     componentDidMount() {
         let tests = TestModel.getTests()
         this.setState({ tests })
+        setTimeout(() => {
+            this.setState({opened: true})
+        }, 1)
     }
 
     
@@ -61,21 +65,20 @@ class CoursePage extends Component {
 
     render() {
 
-        // let test = this.state.tests.map((data, i) => (
-            // <Course test progress={data.progress} date={data.date} key={i} test_id={data.id}z />
-        // ))
-
         let { name, language } = LessonModel.lesson
         
         return (
             <>
                 <CoursePageStyle
+                opened={this.state.opened}
                 width={this.state.width}
                 margin={this.state.notiCounter}>
+                    <div className='main-header-wrapper'>
                     <div className='main-header'>
-                        <Title title={`${name} ${language}`}/>
+                        <Title test title={`${name} ${language}`} className='title'/>
                         <div className='notification'>
                     <Notification type={this.state.notiCounter} />
+                    </div>
                     </div>
                     </div>
                         <div className='test-list'>
@@ -88,14 +91,14 @@ class CoursePage extends Component {
                                     classNames='items'
                                     key={i}
                                 >
-                                        <Course test progress={data.progress} date={data.date} key={i} test_id={data.id}z />
+                                        <Course test progress={data.progress} date={data.date} key={i} test_id={data.id}/>
                                     </CSSTransition>
                                 ))
                             }
                             </TransitionGroup>
                         </div>
                 </CoursePageStyle>
-                <div onClick={() => this.onAddNewTest()}> 
+                <div onClick={() => this.onAddNewTest()} className='bottom'> 
                 <Bottom type='new-test'/>
                 </div>
             </>

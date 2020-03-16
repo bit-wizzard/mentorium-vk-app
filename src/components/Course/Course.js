@@ -9,9 +9,12 @@ import LessonModel from '../../models/lesson'
 import TestModel from '../../models/test'
 
 class Course extends Component {  
-    
-    state = {
-        onDelete: false
+    constructor() {
+        super()
+        this.state = {
+            onDelete: false,
+            // onEnter: false
+            }
     }
 
         nextPath(path) {
@@ -28,7 +31,12 @@ class Course extends Component {
 
     onChangeDirection(id) {
         this.nextPath('/course/' + id)
-        LessonModel.getLessonData(this.props.id)
+            LessonModel.getLessonData(this.props.id)
+        // this.setState({ onEnter: true })
+        // setTimeout(() => {
+            // this.nextPath('/course/' + id)
+            // LessonModel.getLessonData(this.props.id)
+        // }, 1000)
     }
 
     onOpenTest(id) {
@@ -42,7 +50,12 @@ class Course extends Component {
             <>
                 {!this.props.test ?
                 <>
-                <CourseStyle onDelete={this.state.onDelete}>
+                <CourseStyle 
+                // onEnter={this.state.onEnter}
+                >
+                    {/* <div className='next-page-wrapper'> */}
+                    {/* <div className='next-page'></div> */}
+                    {/* </div> */}
                     <div className='card' onClick={() => this.onChangeDirection(this.props.id)}>
                     <div className='title'>
                         <Text size='default'>{this.props.title}</Text>

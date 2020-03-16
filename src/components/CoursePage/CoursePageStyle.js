@@ -3,16 +3,18 @@ import styled from 'styled-components'
 export const CoursePageStyle = styled.div
 `   
     padding: 1rem;
-    .main-header {
-        background: #f0f0f0;
+    .main-header-wrapper {
+        background: lightblue;
         margin: -1rem -1rem 0 -1rem;     
         padding: 1rem;
-        display: grid;
         width: 100vw;
-        grid-template-rows: auto 1fr;
         height: 20vh;  
-        border-radius: 0; 
         position: fixed;
+    }
+    .main-header {
+        display: grid;
+        grid-template-rows: auto 1fr;
+        border-radius: 0; 
     }
     .test-list {
         margin-top: calc(20vh + 2rem);
@@ -36,7 +38,20 @@ export const CoursePageStyle = styled.div
     .notification {
         margin-right: 2rem;
     }
+    ${props => props.opened ? 
     `
+        .main-header{
+            opacity: 1;
+            transition: 0.5s;    
+        }
+    `:
+    `
+        .main-header{
+            opacity: 0;
+        }
+    `
+    }
+`
 
     //     ${props => (props.margin === 2 && !props.firstEnter)  &&
     //     `

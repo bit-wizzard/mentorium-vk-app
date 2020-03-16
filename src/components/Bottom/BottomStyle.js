@@ -83,6 +83,17 @@ export const BottomStyle = styled.div `
     bottom: 0;
     left: 0;
     `
+
+    // ${props => props.appear ? 
+    // `
+        // opacity: 1;
+        // transition: 0.5s;
+    // `
+    // :
+    // `
+        // opacity:0;`
+    // }
+    
     export const BottomCourseSelector = styled.div 
 `
 

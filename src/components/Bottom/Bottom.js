@@ -12,12 +12,19 @@ class Bottom extends Component {
     constructor() {
         super();
         this.state = {
-            bottomOpened: false
+            bottomOpened: false,
+            // appear: false
         }
     }
     goToTests() {
         this.props.history.goBack()
         this.props.history.goBack()
+    }
+
+    componentDidMount() {
+        setTimeout(() => {
+            this.setState({appear: true})
+        }, 1)
     }
 
     render() {
@@ -44,33 +51,11 @@ class Bottom extends Component {
                 </BottomStyle>
             </BottomBack>
             }
-            {/* {this.props.type === 'session' &&
-            <>
-                <BottomStyle onClick={() => this.setState({bottomOpened: true})}>
-                        {!this.state.bottomOpened ?
-                        <BottomInner>
-                        <div className='caption'>
-                            <div>
-                            <FontAwesomeIcon icon={faPlus} />
-                            <Text size='default'>Добавить новый предмет</Text>
-                            </div>
-                        </div>
-                        </BottomInner>
-                        :
-                        <BottomCourseSelector>
-                        <div className='course-selector'></div>
-                         <div className='caption'>
-                            <FontAwesomeIcon icon={faPlus} />
-                            <Text size='default'>Добавить новый предмет</Text>
-                        </div>
-                        </BottomCourseSelector>
-                        }
-                </BottomStyle>
-            </>
-            } */}
             {this.props.type === 'new-test' &&
                 <>
-                <BottomQuestion>
+                <BottomQuestion
+                //  appear={this.state.appear}
+                 >
                 <BottomStyle>
                         <div className='caption'>
                             <div>
