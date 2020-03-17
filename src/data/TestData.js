@@ -7,7 +7,7 @@ export const TestData = [
     },
     {
         id: 1,
-        question: 'Не следует, однако забывать, что новая модель организационной деятельности способствует подготовки и реализации?',
+        question: 'what is your name?',
         options: ['Bassan', 'Shmargun', 'Lirinirill', 'Darnurda', 'Darnurda'],
         answer: 'Bassan'
     },

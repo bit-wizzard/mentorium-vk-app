@@ -36,7 +36,7 @@ class Submit extends Component {
     
     render() {
         let { test } = this.state
-
+        let { questionsData, usersAnswers } = test
         return (
             <>
                 <SubmitStyle>
@@ -52,7 +52,18 @@ class Submit extends Component {
                         </div>
                     </div>
                     <div className='submit-content'>
-                        
+                        {
+                            test.wrongAnswers.map((data, i) => (
+                                <>
+                                    {questionsData[data].question}
+                                    {questionsData[data].answer}
+                                    --------------------
+                                    {usersAnswers[data]}
+                                </>
+                            ))
+                            
+                            
+                        }
                     </div>
                 </SubmitStyle>
                 <Bottom type='end-test'/>

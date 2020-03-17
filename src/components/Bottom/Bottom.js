@@ -6,6 +6,8 @@ import CourseSelector from '../CourseSelector/CourseSelector'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import {  withRouter } from 'react-router-dom'
+import LessonModel from '../../models/lesson'
+
 
 class Bottom extends Component {
 
@@ -17,8 +19,7 @@ class Bottom extends Component {
         }
     }
     goToTests() {
-        this.props.history.goBack()
-        this.props.history.goBack()
+        this.props.history.push('../../course/' + LessonModel.lesson.code)
     }
 
     componentDidMount() {

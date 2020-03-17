@@ -83,7 +83,6 @@ class CoursePage extends Component {
                     </div>
                     <div className='test-list'>
                         <TransitionGroup>
-
                             {
                                 this.state.tests.reverse().map((data, i) => (
                                     <CSSTransition
@@ -91,7 +90,7 @@ class CoursePage extends Component {
                                         classNames='items'
                                         key={i}
                                     >
-                                        <Course test progress={data.progress} date={data.date} key={i} test_id={data.id} />
+                                        <Course test progress={data.progress} date={data.date} key={i} test_id={data.id} isSubmitted={data.isSubmitted} />
                                     </CSSTransition>
                                 ))
                             }

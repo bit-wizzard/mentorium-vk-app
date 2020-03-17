@@ -30,6 +30,7 @@ class Test extends Component {
             correctAnswers: [],
             wrongAnswers: [],
             blankAnswers: [],
+            usersAnswers: [],
 
             testEnd: false
         }
@@ -48,7 +49,7 @@ class Test extends Component {
                 options: TestModel.test.questionsData[currentQuestion].options,
                 answers: TestModel.test.questionsData[currentQuestion].answer,
                 correctAnswer: TestModel.test.questionsData[currentQuestion].answer,
-                blankAnswers: [0, 1,2,3]
+                blankAnswers: [0,1,2,3]
             }
         })
     }
@@ -82,9 +83,9 @@ class Test extends Component {
                 currentQuestion: nextQ 
             })
         }else{
-            if(userAnswer)
+            if(userAnswer){
                 this.finishHandler()
-            else
+            }else
                 this.setState({
                     currentQuestion: currentQuestion + 1
                 })
@@ -113,22 +114,29 @@ class Test extends Component {
     }
 
     setAnswer(answer) {
+        let { currentQuestion, usersAnswers } = this.state
+
+        usersAnswers[currentQuestion] = answer
+        this.setState({
+            usersAnswers
+        })
+
         if(this.state.correctAnswer === answer){
             this.setState(prevState => ({
                 userAnswer: answer,
-                correctAnswers: [...prevState.correctAnswers, answer].sort()
+                correctAnswers: [...prevState.correctAnswers, currentQuestion].sort()
             }))
         }else{
             this.setState(prevState => ({
                 userAnswer: answer,
-                wrongAnswers: [...prevState.wrongAnswers, answer].sort()
+                wrongAnswers: [...prevState.wrongAnswers, currentQuestion].sort()
             }))
         }
     }
 
     finishHandler = () => {
 
-        let {userAnswer, correctAnswer, score, blankAnswers, currentQuestion} = this.state
+        let {userAnswer, correctAnswer, score, blankAnswers, currentQuestion, usersAnswers} = this.state
 
         if(userAnswer && blankAnswers.indexOf(currentQuestion) !== -1){
             blankAnswers = blankAnswers.filter(i => i !== currentQuestion)
@@ -149,12 +157,16 @@ class Test extends Component {
             if(correctAnswer === userAnswer){
                 score += 1
             }
+            if(currentQuestion !== questions.length - 1){
+                score += 1
+            }
 
             let test = {
                 id,
                 questionsData,
                 correctAnswers,
                 wrongAnswers,
+                usersAnswers,
                 progress: (score*100)/questions.length
             }
             TestModel.submitTest(test)

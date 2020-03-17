@@ -32,17 +32,14 @@ class Course extends Component {
     onChangeDirection(id) {
         this.nextPath('/course/' + id)
             LessonModel.getLessonData(this.props.id)
-        // this.setState({ onEnter: true })
-        // setTimeout(() => {
-            // this.nextPath('/course/' + id)
-            // LessonModel.getLessonData(this.props.id)
-        // }, 1000)
     }
 
     onOpenTest(id) {
         TestModel.setTest(id)
-        this.nextPath('/test/' + id)
-        //need to add modes for the test
+        if(this.props.isSubmitted)
+            this.nextPath('/submit/' + id)
+        else
+            this.nextPath('/test/' + id)     
     }
     
     render() {
