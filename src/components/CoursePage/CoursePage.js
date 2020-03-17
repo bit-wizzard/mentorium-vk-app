@@ -14,8 +14,8 @@ import TestModel from '../../models/test'
 import { observer } from 'mobx-react'
 
 
-class CoursePage extends Component { 
-    
+class CoursePage extends Component {
+
     constructor() {
         super()
         this.state = {
@@ -23,40 +23,40 @@ class CoursePage extends Component {
             tests: [],
             width: null,
             firstTime: true,
-            opened: false
+            opened: false,
         }
     }
 
     componentWillMount() {
-        
-        if(this.state.tests.length > 0)
-            this.setState({notiCounter: 3})
+
+        if (this.state.tests.length > 0)
+            this.setState({ notiCounter: 3 })
     }
 
     componentDidUpdate() {
-        if(this.state.notiCounter == 2 && this.state.tests.length > 0)
-                this.setState({notiCounter: 3})
+        if (this.state.notiCounter == 2 && this.state.tests.length > 0)
+            this.setState({ notiCounter: 3 })
 
-        if(this.state.notiCounter == 3 && this.state.tests.length == 0) 
-                this.setState({notiCounter: 2})
+        if (this.state.notiCounter == 3 && this.state.tests.length == 0)
+            this.setState({ notiCounter: 2 })
 
-        if(this.state.firstTime) {
-            this.setState({firstTime: false})
-            this.setState({width: window.innerWidth})
+        if (this.state.firstTime) {
+            this.setState({ firstTime: false })
+            this.setState({ width: window.innerWidth })
         }
     }
     componentDidMount() {
         let tests = TestModel.getTests()
         this.setState({ tests })
         setTimeout(() => {
-            this.setState({opened: true})
+            this.setState({ opened: true })
         }, 1)
     }
 
-    
+
     onAddNewTest() {
-        if(!this.state.tests.find(o => o.isSubmitted == false)){
-            let test = { code: 0  }
+        if (!this.state.tests.find(o => o.isSubmitted == false)) {
+            let test = { code: 0 }
             test.code = LessonModel.lesson.code
             test.questionsData = TestData
             TestModel.addNewTest(test)
@@ -66,40 +66,40 @@ class CoursePage extends Component {
     render() {
 
         let { name, language } = LessonModel.lesson
-        
+
         return (
             <>
                 <CoursePageStyle
-                opened={this.state.opened}
-                width={this.state.width}
-                margin={this.state.notiCounter}>
+                    opened={this.state.opened}
+                    width={this.state.width}
+                    margin={this.state.notiCounter}>
                     <div className='main-header-wrapper'>
-                    <div className='main-header'>
-                        <Title test title={`${name} ${language}`} className='title'/>
-                        <div className='notification'>
-                    <Notification type={this.state.notiCounter} />
+                        <div className='main-header'>
+                            <Title test title={`${name} ${language}`} className='title' />
+                            <div className='notification'>
+                                <Notification type={this.state.notiCounter} />
+                            </div>
+                        </div>
                     </div>
-                    </div>
-                    </div>
-                        <div className='test-list'>
-                            <TransitionGroup>
+                    <div className='test-list'>
+                        <TransitionGroup>
 
                             {
-                                this.state.tests.map((data, i) => (
+                                this.state.tests.reverse().map((data, i) => (
                                     <CSSTransition
-                                    timeout={500}
-                                    classNames='items'
-                                    key={i}
-                                >
-                                        <Course test progress={data.progress} date={data.date} key={i} test_id={data.id}/>
+                                        timeout={500}
+                                        classNames='items'
+                                        key={i}
+                                    >
+                                        <Course test progress={data.progress} date={data.date} key={i} test_id={data.id} />
                                     </CSSTransition>
                                 ))
                             }
-                            </TransitionGroup>
-                        </div>
+                        </TransitionGroup>
+                    </div>
                 </CoursePageStyle>
-                <div onClick={() => this.onAddNewTest()} className='bottom'> 
-                <Bottom type='new-test'/>
+                <div onClick={() => this.onAddNewTest()} className='bottom'>
+                    <Bottom type='new-test' />
                 </div>
             </>
         )

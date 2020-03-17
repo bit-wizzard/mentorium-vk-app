@@ -4,7 +4,7 @@ export const CoursePageStyle = styled.div
 `   
     padding: 1rem;
     .main-header-wrapper {
-        background: lightblue;
+        background: #f0f0f0;
         margin: -1rem -1rem 0 -1rem;     
         padding: 1rem;
         width: 100vw;
@@ -51,6 +51,7 @@ export const CoursePageStyle = styled.div
         }
     `
     }
+
 `
 
     //     ${props => (props.margin === 2 && !props.firstEnter)  &&

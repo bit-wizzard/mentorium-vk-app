@@ -43,11 +43,17 @@ class Submit extends Component {
                     <div className='test-header'>
                         <Title title={`${this.state.lesson.name} ${this.state.lesson.language}`} main/>
                         <div className='notification'>
-                        <Text size='small'>Congrats, you've done test. Your score is {test.progress}%</Text>
-                        <Text size='small'>Try to remember incorrect answers</Text>
+                        <Text size='small'>Тест окончен. Вы набрали {test.progress}%</Text>
+                        {test.progress === 100 ?
+                        <Text size='small'>Отличный результат, проходите больше тестов и закрепляйте знания!</Text>
+                        :
+                        <Text size='small'>Хорошая попытка, запомните правильные ответы ниже и начинайте новый тест</Text>
+                        }
                         </div>
                     </div>
-
+                    <div className='submit-content'>
+                        
+                    </div>
                 </SubmitStyle>
                 <Bottom type='end-test'/>
             </>

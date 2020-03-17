@@ -9,11 +9,7 @@ export const SubmitStyle = styled.div
         grid-template-rows: auto 1fr;
         height: 20vh;  
         border-radius: 0; 
-        position: fixed;
-        width: 100%;
     }
     .notification {
-        margin-right: 1rem;
-        background: red;
     }
     `

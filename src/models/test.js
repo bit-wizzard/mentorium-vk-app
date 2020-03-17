@@ -11,7 +11,7 @@ class TestModel {
         code: null,
         questionsData: [],
         correctAnswers: [],
-        wrongAnswers: []
+        wrongAnswers: [],
     }
     
     submittedTest = {}
