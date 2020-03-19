@@ -29,6 +29,9 @@ class App extends Component {
 		return pathArr.length;
 	}
 
+	// componentDidUpdate() {
+		// // console.log(this.props.history.state)
+	// }
 
 	render() {
 
@@ -40,7 +43,7 @@ class App extends Component {
 				{/* <TransitionGroup> */}
 					{/* <CSSTransition key={currentKey} timeout={2500} classNames='pageSlider' mountOnEnter={false} unmountOnExit={true}> */}
 						{/* <div className={this.getPathDepth(location) - this.state.prevDepth >= 0 ? "left" : "right"}> */}
-							<Switch location={location}>
+							<Switch>
 								<Route
 									exact
 									path="/"

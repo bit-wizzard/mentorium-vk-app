@@ -114,6 +114,9 @@ class Test extends Component {
     }
 
     setAnswer(answer) {
+
+        this.showPosition()
+        
         let { currentQuestion, usersAnswers } = this.state
 
         usersAnswers[currentQuestion] = answer
@@ -132,6 +135,10 @@ class Test extends Component {
                 wrongAnswers: [...prevState.wrongAnswers, currentQuestion].sort()
             }))
         }
+    }
+
+    showPosition() {
+        
     }
 
     finishHandler = () => {
@@ -171,7 +178,7 @@ class Test extends Component {
             }
             TestModel.submitTest(test)
 
-            this.props.history.push(`/submit/${id}`)
+            this.props.history.replace(`/submit/${id}`)
         }
 
         if(!userAnswer && blankAnswers.length > 0){
