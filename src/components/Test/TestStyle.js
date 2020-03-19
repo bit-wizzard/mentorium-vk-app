@@ -55,6 +55,7 @@ export const TestOptions = styled.div
 `       
     margin-top: ${props => props.margin}px;
     width: calc(${props => props.width}px);
+    z-index: -10;
     .test-option_wrapper-absolute {
         position: absolute;
         padding-bottom: 4rem;
