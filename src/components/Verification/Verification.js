@@ -21,9 +21,9 @@ class Verification extends Component {
                 <VerificationStyle>
                     {!this.props.test ?
                         <VerificationInner>
-                            <Text size='default'>Вы уверены, что хотите удалить предмет {`${this.props.name} ${this.props.language}`} ?</Text>
+                            <Text size='default'>Вы уверены, что хотите удалить предмет {`${this.props.lesson.name} ${this.props.lesson.language}`} ?</Text>
                             <div className='options'>
-                                <VerificationYes onClick={() => this.onDelete(this.props.code)}>Да</VerificationYes>
+                                <VerificationYes onClick={() => this.onDelete(this.props.lesson.code)}>Да</VerificationYes>
                                 <VerificationNo>Нет</VerificationNo>
                             </div>
                         </VerificationInner>
