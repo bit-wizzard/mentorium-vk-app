@@ -5,6 +5,7 @@ export const TestStyle = styled.div
     padding-bottom: 4rem;
     display: grid;
     grid-template-rows: 1fr auto;
+    position: relative;
     .test-content {
         display: grid;
     }
@@ -14,8 +15,8 @@ export const TestStyle = styled.div
         display: grid;
         grid-template-rows: auto 1fr;
         position: fixed;
+        z-index: 100;
     }
-    z-index: 100;
 `
 export const TestQuestion = styled.div
 `
@@ -55,7 +56,7 @@ export const TestOptions = styled.div
 `       
     margin-top: ${props => props.margin}px;
     width: calc(${props => props.width}px);
-    z-index: -10;
+    position: relative;
     .test-option_wrapper-absolute {
         position: absolute;
         padding-bottom: 4rem;
@@ -63,12 +64,14 @@ export const TestOptions = styled.div
     .test-option-wrapper {
         display: grid
         grid-gap: 1rem;
+        z-index: 100;
     }
     .test-option {
         background: #fafafa;
         border-radius: 10px;
         padding: 1rem;
         margin: 1rem;
+        position: relative;
     }   
     .correct {
         background: rgba(130, 222, 139, 0.5);
