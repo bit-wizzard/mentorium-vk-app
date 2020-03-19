@@ -51,6 +51,7 @@ export const BottomStyle = styled.div `
 
     .course-selector {
         position: relative;
+        z-index: 
     }
     .course-selector-inner {
         position: absolute;
@@ -61,7 +62,7 @@ export const BottomStyle = styled.div `
         .course-selector-inner {
                 bottom: 0;
                 opacity: 1;
-                transition: 0.2s;
+                transition: 0.3s;
                 z-index: 1;
             }
         ` 
@@ -69,8 +70,9 @@ export const BottomStyle = styled.div `
         `
             .course-selector-inner {
                 opacity: 0;
-                bottom: -10rem;
-                transition: 0.2s;
+                bottom: -5.5rem;
+                transition: 0.3s;
+                position: relative;
                 z-index: -999;
             }
         `
