@@ -136,11 +136,7 @@ class Test extends Component {
         }
         
         if(options.indexOf(correctAnswer)+1 <= options.length/2){
-<<<<<<< HEAD
             window.scroll(0, -400)
-=======
-            console.group(1)
->>>>>>> 6f182e5bc249c6febafe2450e77dfc3c772779e3
         }else{
             window.scroll(0, 400)
         }
