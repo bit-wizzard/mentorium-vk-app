@@ -114,14 +114,14 @@ class Test extends Component {
     }
 
     setAnswer(answer) {
-        let { currentQuestion, usersAnswers } = this.state
+        let { currentQuestion, usersAnswers, correctAnswer, options } = this.state
 
         usersAnswers[currentQuestion] = answer
         this.setState({
             usersAnswers
         })
 
-        if(this.state.correctAnswer === answer){
+        if(correctAnswer === answer){
             this.setState(prevState => ({
                 userAnswer: answer,
                 correctAnswers: [...prevState.correctAnswers, currentQuestion].sort()
@@ -131,6 +131,12 @@ class Test extends Component {
                 userAnswer: answer,
                 wrongAnswers: [...prevState.wrongAnswers, currentQuestion].sort()
             }))
+        }
+        
+        if(options.indexOf(answer)+1 <= options.length/2){
+            console.group(1)
+        }else{
+            console.group(2)
         }
     }
 

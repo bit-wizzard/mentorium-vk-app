@@ -10,7 +10,7 @@ import LessonModel from '../../models/lesson'
 
 
 class Bottom extends Component {
-
+    
     constructor() {
         super();
         this.state = {
@@ -18,6 +18,7 @@ class Bottom extends Component {
             // appear: false
         }
     }
+    
     goToTests() {
         this.props.history.push('../../course/' + LessonModel.lesson.code)
     }
