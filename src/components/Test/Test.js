@@ -135,7 +135,7 @@ class Test extends Component {
             }))
         }
         
-        if(options.indexOf(answer)+1 <= options.length/2){
+        if(options.indexOf(correctAnswer)+1 <= options.length/2){
             console.group(1)
         }else{
             console.group(2)
