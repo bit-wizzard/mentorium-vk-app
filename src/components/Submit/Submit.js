@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { SubmitStyle } from './SubmitStyle'
+import { SubmitStyle, SubminContent } from './SubmitStyle'
 import { withRouter } from 'react-router'
 import Title from '../Title/Title'
 import Text from '../Text/Text'
@@ -21,7 +21,7 @@ class Submit extends Component {
     componentWillMount() {
         let id = this.props.match.params.test_id
         let test = TestModel.appliedTests.find(o => o.id == id)
-        
+
         let lesson = LessonModel.lesson
 
         this.setState({
@@ -30,10 +30,10 @@ class Submit extends Component {
     }
 
     nextPath(path) {
-        if(path !== this.props.location.pathname)
+        if (path !== this.props.location.pathname)
             this.props.history.push(path)
     }
-    
+
     render() {
         let { test } = this.state
         let { questionsData, usersAnswers } = test
@@ -41,32 +41,44 @@ class Submit extends Component {
             <>
                 <SubmitStyle>
                     <div className='test-header'>
-                        <Title title={`${this.state.lesson.name} ${this.state.lesson.language}`} main/>
+                        <Title title={`${this.state.lesson.name} ${this.state.lesson.language}`} main />
                         <div className='notification'>
-                        <Text size='small'>Тест окончен. Вы набрали {test.progress}%</Text>
-                        {test.progress === 100 ?
-                        <Text size='small'>Отличный результат, проходите больше тестов и закрепляйте знания!</Text>
-                        :
-                        <Text size='small'>Хорошая попытка, запомните правильные ответы ниже и начинайте новый тест</Text>
-                        }
+                            <Text size='small'>Тест окончен. Вы набрали {test.progress}%</Text>
+                            {test.progress === 100 ?
+                                <Text size='small'>Отличный результат, проходите больше тестов и закрепляйте знания!</Text>
+                                :
+                                <Text size='small'>Хорошая попытка, запомните правильные ответы ниже и начинайте новый тест</Text>
+                            }
                         </div>
                     </div>
                     <div className='submit-content'>
                         {
                             test.wrongAnswers.map((data, i) => (
                                 <>
-                                    {questionsData[data].question}
-                                    {questionsData[data].answer}
-                                    --------------------
-                                    {usersAnswers[data]}
+                                    <SubminContent>
+                                        <div className='card'>
+                                        <div className='question'>
+                                            <Text size='small' type='secondary'>Вопрос {data + 1} из {questionsData.length}</Text>
+                                            {questionsData[data].question}
+                                        </div>
+                                        <div className='answer'>  
+                                            <Text type='secondary'>Ваш ответ:</Text>                                            
+                                            <Text type='secondary'>{usersAnswers[data]}</Text>
+                                        </div>
+                                        <div className='correct'>
+                                            <Text>Правильный ответ:</Text>
+                                            {questionsData[data].answer}
+                                        </div>
+                                        </div>
+                                    </SubminContent>
                                 </>
                             ))
-                            
-                            
+
+
                         }
                     </div>
                 </SubmitStyle>
-                <Bottom type='end-test'/>
+                <Bottom type='end-test' />
             </>
         )
     }

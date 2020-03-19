@@ -24,7 +24,8 @@ export const BottomStyle = styled.div `
 
     display: grid;
     margin: 0 1rem;
-    background: #fff;
+    background: rgb(251,251,251);
+    background: linear-gradient(180deg, rgba(251,251,251,0) 40%, rgba(255,255,255,1) 40%, rgba(255,255,255,1) 100%); 
     padding-bottom: 1rem;
     
     

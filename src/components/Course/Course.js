@@ -75,7 +75,11 @@ class Course extends Component {
                 <>
                 <TestStyle onClick={() => this.onOpenTest(this.props.test_id)}>
                     <div className='progress'>
+                        {this.props.isSubmitted ? 
                         <FontAwesomeIcon icon={faCheckCircle} color='#31B43D' size='lg'/>
+                        :
+                        <FontAwesomeIcon icon={faCheckCircle} color='#ebebeb' size='lg'/>
+                        }
                         <div>{ this.props.progress }%</div>
                     </div>
                     <div className='date'>{ this.props.date }</div>

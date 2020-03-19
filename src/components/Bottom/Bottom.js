@@ -20,7 +20,7 @@ class Bottom extends Component {
     }
     
     goToTests() {
-        this.props.history.push('../../course/' + LessonModel.lesson.code)
+        this.props.history.replace('/course/' + LessonModel.lesson.code)
     }
 
     componentDidMount() {
