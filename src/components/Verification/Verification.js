@@ -31,7 +31,7 @@ class Verification extends Component {
                         <VerificationInner>
                             <Text size='default'>Если Вы закончите тест - мы не сможем сохранить Ваш прогресс. Вы уверены, что хотите выйти?</Text>
                             <div className='options'>
-                                <VerificationYes onClick={() => this.props.history.replace('/course/'+LessonModel.lesson.code)}>Да</VerificationYes>
+                                <VerificationYes onClick={() => this.props.history.go(-1)}>Да</VerificationYes>
                                 <VerificationNo>Нет</VerificationNo>
                             </div>
                         </VerificationInner>

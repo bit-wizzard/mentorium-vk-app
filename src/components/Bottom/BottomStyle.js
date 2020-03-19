@@ -27,7 +27,8 @@ export const BottomStyle = styled.div `
     background: rgb(251,251,251);
     background: linear-gradient(180deg, rgba(251,251,251,0) 40%, rgba(255,255,255,1) 40%, rgba(255,255,255,1) 100%); 
     padding-bottom: 1rem;
-    
+    position: relative;
+    z-index: 100;    
     
     transition: 0.1s;
     
@@ -39,7 +40,7 @@ export const BottomStyle = styled.div `
         padding: 1rem;
         justify-content: center;
         position: relative;
-        z-index: 999;
+        z-index: 150;
         div {
             display: grid;
             grid-template-columns: auto 1fr;
@@ -83,6 +84,7 @@ export const BottomStyle = styled.div `
     width: 100%;
     bottom: 0;
     left: 0;
+    z-index: -100;
     `
 
     // ${props => props.appear ? 

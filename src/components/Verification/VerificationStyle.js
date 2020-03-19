@@ -11,6 +11,7 @@ export const VerificationStyle = styled.div
     align-items: center;
     justify-content: center;
     background: rgba(0, 0, 0, 0.2);
+    z-index: 1000;
 `
 export const VerificationInner = styled.div
 `

@@ -14,8 +14,8 @@ export const TestStyle = styled.div
         display: grid;
         grid-template-rows: auto 1fr;
         position: fixed;
-
     }
+    z-index: 100;
 `
 export const TestQuestion = styled.div
 `
