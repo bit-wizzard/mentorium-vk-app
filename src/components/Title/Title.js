@@ -1,29 +1,37 @@
 import React, { Component } from 'react'
-import { TitleStyle } from './TitleStyle'
+import { TitleStyle, VerificationStyle } from './TitleStyle'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import { withRouter } from 'react-router-dom'
 import disableBrowserBackButton from 'disable-browser-back-navigation';
 
 import Text from '../Text/Text'
+import Verification from '../Verification/Verification'
 
 class Title extends Component {
 
     constructor() {
         super()
-        // this.state = {
+        this.state = {
             // toMain: false
-        // }
-    }    
+            verificationOn: false
+        }
+
+    }
+
+    
+    verification() {
+        this.setState({ verificationOn: true })
+    }
 
     // toMain() {
-        // setTimeout(() => {
-            // this.props.history.goBack()
-        // }, 1500)
+    // setTimeout(() => {
+    // this.props.history.goBack()
+    // }, 1500)
     // }
 
     // componentWillMount() {
-        // window.onbeforeunload = function() { return "Your work will be lost."; };
+    // window.onbeforeunload = function() { return "Your work will be lost."; };
     // }
 
     render() {
@@ -47,17 +55,19 @@ class Title extends Component {
                 }
                 {this.props.test &&
                     <TitleStyle>
-                            <FontAwesomeIcon icon={faChevronLeft} onClick={() => this.props.history.goBack()
-} />
+                        <VerificationStyle verificationOn={this.state.verificationOn} onClick={() => this.setState({verificationOn: false})}>
+                            <Verification test></Verification>
+                        </VerificationStyle>
+                        <FontAwesomeIcon icon={faChevronLeft} onClick={() => this.verification()} />
                         <Text size='big' weight='bold'>{this.props.title}</Text>
                     </TitleStyle>
                 }
-                {/* <TitleStyle>
-                    <div>
-                        <FontAwesomeIcon icon={faChevronLeft}/>
-                    </div>
-                    <Text size='big' weight='bold'>{this.props.title}</Text>
-                </TitleStyle> */}
+                {this.props.coursePage &&
+                    <TitleStyle verificationOn={this.state.verificationOn}>
+                        <FontAwesomeIcon icon={faChevronLeft} onClick={() => this.props.history.goBack()} />
+                        <Text size='big' weight='bold'>{this.props.title}</Text>
+                    </TitleStyle>
+                }
 
 
             </>

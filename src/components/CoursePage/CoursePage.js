@@ -75,7 +75,7 @@ class CoursePage extends Component {
                     margin={this.state.notiCounter}>
                     <div className='main-header-wrapper'>
                         <div className='main-header'>
-                            <Title test title={`${name} ${language}`} className='title' />
+                            <Title coursePage title={`${name} ${language}`} className='title' />
                             <div className='notification'>
                                 <Notification type={this.state.notiCounter} />
                             </div>

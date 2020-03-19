@@ -6,27 +6,36 @@ import LessonModel from '../../models/lesson'
 import { observer } from 'mobx-react'
 
 class Verification extends Component {
-    
+
     onDelete(code) {
         LessonModel.deleteFromLessons(code)
     }
 
     // componentDidMount() {
-        // LessonModel.getLessonData(this.props.match.params.id)
+    // LessonModel.getLessonData(this.props.match.params.id)
     // }
 
     render() {
-        let { name, language, code } = this.props.lesson
         return (
             <>
                 <VerificationStyle>
-                    <VerificationInner>
-                        <Text size='default'>Вы уверены, что хотите удалить предмет {`${name} ${language}`} ?</Text>
-                        <div className='options'>
-                            <VerificationYes onClick={() => this.onDelete(code)}>Да</VerificationYes>
-                            <VerificationNo>Нет</VerificationNo>
-                        </div>
-                    </VerificationInner>
+                    {!this.props.test ?
+                        <VerificationInner>
+                            <Text size='default'>Вы уверены, что хотите удалить предмет {`${this.props.name} ${this.props.language}`} ?</Text>
+                            <div className='options'>
+                                <VerificationYes onClick={() => this.onDelete(this.props.code)}>Да</VerificationYes>
+                                <VerificationNo>Нет</VerificationNo>
+                            </div>
+                        </VerificationInner>
+                        :
+                        <VerificationInner>
+                            <Text size='default'>Если Вы закончите тест - мы не сможем сохранить Ваш прогресс. Вы уверены, что хотите выйти?</Text>
+                            <div className='options'>
+                                <VerificationYes onClick={() => this.props.history.replace('/course/'+LessonModel.lesson.code)}>Да</VerificationYes>
+                                <VerificationNo>Нет</VerificationNo>
+                            </div>
+                        </VerificationInner>
+                        }
                 </VerificationStyle>
             </>
         )
